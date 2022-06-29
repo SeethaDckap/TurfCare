@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var \Magento\Catalog\Block\Product\AbstractProduct $block */ ?>
+<?php
+$om = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $om->get('Magento\Customer\Model\Session');
+$customerData = $customerSession->getCustomer();
+$erpCustomerCodes = explode(",", $customerData->getErpCustomerCode());
+?>
+<?php $_product = $block->getProduct() ?>
+<?php
+if($customerSession->isLoggedIn()  && in_array($_product->getErpProductCategoryCode(), $erpCustomerCodes) && !empty($_product->getErpProductCategoryCode())):
+?>
+<?= $block->getProductPriceHtml(
+    $_product,
+    \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+    \Magento\Framework\Pricing\Render::ZONE_ITEM_VIEW,
+    [
+        'price_id_suffix' => '_clone'
+    ]
+) ?>
+<?php endif; ?>

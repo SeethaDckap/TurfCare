@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modules>
+	<module target="" controller="engine" />
+	<module target="sfg_menu" controller="menu" />
+	<module target="sfg_top" controller="pager" />
+	<module target="sfg_elements_bar" controller="protos" />
+	<module target="" controller="msdn" />
+</modules>

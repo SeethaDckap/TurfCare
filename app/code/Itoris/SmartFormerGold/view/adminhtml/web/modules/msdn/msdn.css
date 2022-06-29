@@ -1,0 +1,191 @@
+#elementProperties {
+	left:0px;
+	top:0px;
+	width:360px;
+	height:300px;
+	position:absolute;
+	border:1px solid #888888;
+	background-color:#f5f5f5;
+	z-index:9999;
+    box-sizing:initial;
+    font-size:12px;
+    line-height:10px;
+    font-family:Arial;
+}
+#elementProperties * {box-sizing: revert;}
+
+#propertiesHeader {
+	height:16px;
+	font-family:Arial;
+	font-size:11px;
+	line-height:16px;
+	font-weight:bold;
+	padding:0 1px 0 5px;
+	color:#000000;
+	background-color:#555555;
+	border-bottom:1px solid #888888;
+	color:#ffffff;
+}
+
+#propertiesClose {
+	float:right;
+	cursor:pointer;
+}
+
+#propertiesTabList {
+	margin-top:1px;
+	height:16px;
+	border-bottom:1px solid #888888;
+}
+
+#elementProperties .propertiesTab {
+	float:left;
+	padding: 0 10px 0 10px;
+	font-family:Arial;
+	font-size:11px;
+	line-height:15px;
+	font-weight:bold;
+	border-left:1px solid #eeeeee;
+	border-right:1px solid #bbbbbb;
+	border-top:1px solid #bbbbbb;
+	background-color:#dddddd;
+	color:#000000;
+	cursor:pointer;
+}
+
+#elementProperties .propertiesTabSelected {
+	float:left;
+	padding: 0 10px 0 10px;
+	font-family:Arial;
+	font-size:11px;
+	line-height:15px;
+	font-weight:bold;
+	border-left:1px solid #eeeeee;
+	border-right:1px solid #bbbbbb;
+	border-top:1px solid #bbbbbb;
+	background-color:#888888;
+	color:#ffffff;
+	cursor:default;
+}
+
+#attrList {
+	border:1px solid #888888;
+	margin:1px;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	background-color:#f5f5f5;
+	position:relative;
+}
+
+#elementProperties .property, .propertyX {
+	padding: 0 2px 0 2px;
+	width:100%;
+	height:20px;
+	border-bottom:1px dotted #888888;
+}
+
+#elementProperties .propertyX {
+	background-color:#ddddff;
+	position:relative;
+}
+
+#elementProperties .propertyName {
+	float:left;
+	font-family:Arial;
+	font-size:11px;
+	line-height:20px;
+	height:20px;
+	font-weight:bold;
+	color:#000000;
+	width:160px;
+	text-align:left;
+	overflow:hidden;
+}
+
+#elementProperties .propertyX .propertyName {
+	color:#0000ff;
+}
+
+#elementProperties .propertyControl {
+	padding-top:1px;
+	float:left;
+	text-align:left;
+	width:130px;
+}
+
+#elementProperties .propertyX .propertyControl {
+	position:relative;
+}
+
+#elementProperties .propertyCheckbox {
+	margin:0;
+	padding:0;
+	width:14px;
+	height:14px;
+	zoom:1;
+	border:none;
+	background:none;
+}
+
+#elementProperties .propertyInput{
+	width:130px;
+	height:14px;
+	font-family:Arial;
+	font-size:11px;
+	line-height:14px;
+	margin:0;
+	padding:1px;
+}
+
+#elementProperties .propertySelect{
+	width:130px;
+	height:18px;
+	font-family:Arial;
+	font-size:11px;
+	line-height:14px;
+	margin:0;
+	padding:0px;
+}
+
+#elementProperties .propertyTextArea{
+	position:relative;
+	width:334px;
+	height:160px;
+	left:-161px;
+	top:20px;
+	overflow:scroll;
+	font-family:Arial;
+	font-size:11px;
+	line-height:14px;
+	margin:0;
+	padding:0;
+}
+
+#elementProperties .phpIconContainer {
+	margin:0 0 0 5px;
+	float:left;
+}
+
+#elementProperties .phpIcon {
+	border:none;
+	cursor:pointer;
+}
+
+#elementProperties .propertyColorSelect {
+	margin:1px 0 0 2px;
+	border:1px solid #888888;
+	cursor:pointer;
+	width:16px;
+	height:16px;
+	float:left;
+}
+
+#elementProperties .imageContainer {
+	margin:0 0 0 0px;
+	float:left;
+}
+
+#elementProperties .imageIcon {
+	border:none;
+	cursor:pointer;
+}

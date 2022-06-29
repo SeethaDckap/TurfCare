@@ -1,0 +1,250 @@
+<style>
+
+#ariPartStream .ariPartListAddToCart{
+	background: #e62633 !important;
+    border: 1px solid #e62633 !important;
+}
+
+#ariPartStream .brandLogoBox p {
+	padding:0 !important;
+	height:48px !important;
+}
+
+#ariPartStream .ari-product-line.ari-assembly-select p {
+	padding:0 !important;
+	height:50px !important;
+}
+
+#ariPartStream .ariPartListAddToCart:hover{
+	background: #fff !important;
+    border: 1px solid #000 !important;
+}
+
+.bigfnt{
+	font-size: 18pt;
+    font-weight: 600;
+}
+
+#ariZoomOut{
+	margin-right:15px;
+}
+
+.ari-navButtons:after {
+    content: "Mouse over assembly diagram to view part details. Part availability will be visible after clicking to see pricing.";
+}
+
+#ariSearchLabel h2 {
+    font-style: normal !important;
+    font-size: 2.2rem !important;
+    font-weight: 300 !important;
+	font-family: 'Roboto','sans-serif' !important;
+}
+
+#ariPartStream .ariMainTitle h2 {
+    font-style: normal !important;
+    font-size: 2.2rem !important;
+    font-weight: 300 !important;
+	font-family: 'Roboto','sans-serif' !important;
+}
+	
+#ari_brands {
+		font-family: 'Roboto','sans-serif' !important;
+}	
+
+
+<?php
+if (isset($_GET["arilangcode"]))
+{
+	if ($_GET["arilangcode"] =="fr") 
+		{
+		echo ".ari-navButtons:after {content: \"Passez la souris sur le schéma d'assemblage pour afficher les détails de la pièce. La disponibilité des pièces sera visible après avoir cliqué pour voir les prix.\";}"; 
+		}
+}
+?>
+
+</style>
+
+<h2 id="ps-page-title">Parts Lookup</h2>
+<p id="ps-page-subtitle">Search for parts by brand.</p>
+
+<?php
+//Go to login if not loged-in
+$this->helper('ARI\Partstream\Helper\Customer')->redirectIfNotLoggedIn();
+?>
+
+<script type="text/javascript" id="aripartstream" src="//services.arinet.com/PartStream/?appKey=WoGeyq0LKFfXjn4UOuSE"></script>
+
+<script type="text/javascript">
+
+var urlParams = new URLSearchParams(window.location.search);	
+var lang = urlParams.get('arilangcode');
+
+jQuery(document).ready(function(){
+
+//
+const observer = new MutationObserver(function(mutations_list) {
+	mutations_list.forEach(function(mutation) {
+		mutation.addedNodes.forEach(function(added_node) {
+			
+			if((added_node.id == 'ariAssembly') || (added_node.id =='ariPSSearchReasults_Page')   ){
+				
+				jQuery('.ariPLQty.ariPLQtyInput :input').val(1);
+				jQuery(':input.ariPartListAddToCart.ariImageOverride').val("View Pricing");
+
+				if (lang=="fr"){
+					jQuery(':input.ariPartListAddToCart.ariImageOverride').val("Voir les prix");
+				}
+				//observer.disconnect();
+			}
+		});
+	});
+});
+observer.observe(document.querySelector("#ariDetailsPanel"), { subtree: false, childList: true });
+observer.observe(document.querySelector("#ariSearchPanel"), { subtree: false, childList: true });
+
+jQuery("p[title='Kawasaki Engine']").html("Kawasaki Engines");
+
+if (lang=="fr"){
+	//Dialog
+	jQuery("#modal-content-ps").html("Produit indisponible. Veuillez contacter notre service client pour plus de détails.<br/>1-800-561-8873 EN<br/>1-800-363-9914 FR");
+	jQuery("#ps-close").html("Fermer");
+	jQuery("#ps-cancel").html("Annuler");
+	jQuery("#ps-your-cost").html(" Votre coût");
+	jQuery("#ps-list-price").html(" Prix de détail");
+	jQuery("#ps-add-to-cart").html("AJOUTER AU PANIER");	
+	jQuery("#ps-inctxt").html("Ce produit doit être acheté par multiple de ");
+	jQuery("#ps-mintxt").html("Ce produit est disponible à l'achat en quantité minimum de ");
+	jQuery("#ps-inctxt1").html(" Veuillez ajuster la quantité avant d'ajouter au panier.");
+	jQuery("#ps-nocart").html("Ne peut pas ajouter au panier");
+	
+
+	//Catalog names
+	jQuery("p[title='Toro Commercial Equipment']").html("Équipements Commercial&nbsp;Toro");
+	jQuery("p[title='Yamaha Golf Car']").html("Voiturettes de Golf Yamaha");
+	jQuery("p[title='Toro Consumer']").html("Produits de Consommation de Toro");
+	
+	//Page title and subtitle
+	jQuery("#ps-page-title").html("Recherche de pieces");
+	jQuery("#ps-page-subtitle").html("Rechercher des pièces par marque.");
+	}
+
+});
+
+function ariAddToCart(data){
+		var sku = '';
+		try{
+			sku = unescape(data).split("arisku=")[1].split("&")[0];
+		}
+		catch (e) {
+			console.log(e);
+		}
+		
+		jQuery("#ps-nocart").hide();
+		jQuery("#ps-incdiv").hide();
+		jQuery("#ps-mindiv").hide();
+		jQuery("#ps-inctxt1").hide();
+		
+		jQuery("#btnaddproduct").off("click");
+		jQuery("#btnaddproduct").click(function(){addproduct(data);});
+		
+		jQuery.post(
+			'<?php echo $this->getUrl("partstream/index/getproduct"); ?>', {"data": data},
+			function(r){
+		
+				if (r.available==1){
+				
+					jQuery("#ps-title").html(r.name);
+					jQuery("#ps-sku").html(r.sku);
+					jQuery("#ps-lprice").html(r.price);
+					jQuery("#ps-sprice").html("$" + r.special_price)
+					jQuery("#ps-incqty").html(r.qtyInc);
+					jQuery("#ps-minqty").html(r.qtyMin);
+					
+					if (r.qtyInc > 0) {jQuery("#ps-incdiv").show(); jQuery("#ps-inctxt1").show(); }
+					if (r.qtyMin > 1 ) {jQuery("#ps-mindiv").show(); jQuery("#ps-inctxt1").show(); }
+			 				
+					if (lang=="fr"){ 
+					sprice=(r.special_price).replace(/,/g, '');
+					jQuery("#ps-sprice").html( new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 2 }).format(sprice) + " $"); 
+					}		
+					jQuery('#psmodal-addtocart').addClass('_show');
+				}
+				else{
+					jQuery('#psmodal-notavailable').addClass('_show');
+				}				
+			}
+		);
+}
+
+function addproduct(data){
+	jQuery.post(
+		'<?php echo $this->getUrl("partstream/index/addproduct"); ?>', {"data": data} ,
+			function(r){
+				
+				if (r.add ==1 ){
+				jQuery('#psmodal-addtocart').removeClass('_show');
+				window.scrollTo({ top: 0,left: 0, behavior: 'smooth'});
+				jQuery('a.action.showcart').click();
+				} else{
+					jQuery("#ps-nocart").show();
+				}
+			});
+}
+
+function closemod(){
+		jQuery('.modal-popup').removeClass('_show');
+		//jQuery('#psover').css('display','none');
+}
+
+
+</script>
+
+<aside role="dialog"  id= "psmodal-notavailable" class="modal-popup confirm " aria-describedby="modal-content-21" data-role="modal" data-type="popup" tabindex="0" style="z-index: 902;">
+    <div data-role="focusable-start" tabindex="0"></div>
+    <div class="modal-inner-wrap" data-role="focusable-scope">
+        <header class="modal-header">
+            <button class="action-close" data-role="closeBtn" type="button" onclick="closemod()">
+                <span>Close</span>
+            </button>
+        </header>
+        <div id="modal-content-ps" class="modal-content" data-role="content" >Product not available. Please contact Customer Service for further details.<br/>1-800-561-8873 EN<br/>1-800-363-9914 FR
+		</div>
+        <footer class="modal-footer">
+            <button class="action-secondary action-dismiss" type="button" data-role="action"  onclick="closemod()" ><span id="ps-close">Close</span></button>
+        </footer>
+    </div>
+    <div data-role="focusable-end" tabindex="0"></div>
+</aside>
+
+
+<aside role="dialog"  id= "psmodal-addtocart" class="modal-popup confirm " aria-describedby="modal-content-21" data-role="modal" data-type="popup" tabindex="0" style="z-index: 902;">
+    <div data-role="focusable-start" tabindex="0"></div>
+    <div class="modal-inner-wrap" data-role="focusable-scope">
+        <header class="modal-header">
+            <button class="action-close" data-role="closeBtn" type="button" onclick="closemod()">
+                <span >Close</span>
+            </button>
+        </header>
+        <div id="modal-content-ps" class="modal-content" data-role="content">
+
+<div class="bigfnt" id="ps-title">productname</div>	
+<div style="padding:10px 0 10px 0">SKU#:<span id="ps-sku">sku</span></div>
+<div><span id="ps-sprice" class="bigfnt" style="color:#e62633;">0</span><span id="ps-your-cost" class="your-cost"> Your Cost</span></div>
+<div><span id="ps-lprice" class="bigfnt" >0.0</span><span class="your-cost" id="ps-list-price" > List Price</span></div>
+
+<div id="ps-incdiv" style="margin-top:10px;"><span id="ps-inctxt">This product is available to buy in increments of </span><span id="ps-incqty">1</span>.</div>
+<div id="ps-mindiv" style="margin-top:10px;"><span id="ps-mintxt">This product is available to buy in minimum quantity of </span><span id="ps-minqty">1</span>.</div>
+<div id="ps-inctxt1"> Please adjust the quantity before Adding to Cart. </div>
+
+<div id="ps-nocart" style="color:red">Cannot add to cart.</div>
+	
+		</div>
+        
+		<footer class="modal-footer">
+		     <button id="btnaddproduct" class="action-primary action-accept" type="button" data-role="action"><span id="ps-add-to-cart">ADD TO CART</span></button>
+            <button class="action-secondary action-dismiss" type="button" data-role="action"  onclick="closemod()" ><span id="ps-cancel">Cancel</span></button>
+        </footer>
+    </div>
+    <div data-role="focusable-end" tabindex="0"></div>
+</aside>
+

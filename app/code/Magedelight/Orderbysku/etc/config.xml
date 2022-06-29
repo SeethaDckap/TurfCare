@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Magedelight
+* Copyright (C) 2016 Magedelight <info@magedelight.com>
+*
+* @category Magedelight
+* @package Magedelight_Orderbysku
+* @copyright Copyright (c) 2016 Mage Delight (http://www.magedelight.com/)
+* @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+* @author Magedelight <info@magedelight.com>
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <orderbysku>
+            <general>
+                <enable>0</enable>
+                <page_title>Order By SKU</page_title>
+            </general>
+            <upload_file>
+                <file_data_note>Your csv file must include "sku" and "qty" columns.</file_data_note>
+            </upload_file>
+        </orderbysku>
+    </default>
+</config>

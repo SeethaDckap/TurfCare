@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="currency" remove="true"/>
+		<referenceBlock name="register-link" remove="true" />
+		<move element="top.search" destination="header.panel" after="header.links"/>
+		<move element="header.right" destination="header.panel" before="-"/>
+		<move element="header" destination="header.links" after="-"/>
+		<move element="customer" destination="header.links" after="header"/>
+		<move element="authorization-link-login" destination="header.links" after="-"/>
+		<referenceBlock name="sale.reorder.sidebar" remove="true"/>
+		<referenceBlock name="custom.top.links">
+			<block class="Magento\Framework\View\Element\Html\Link" name="finance" after="top-events-training">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">Finance</argument>
+					<argument name="path" xsi:type="string" translate="true">turf-care-financial</argument>
+					<argument name="sortOrder" xsi:type="number">400</argument>
+					<argument name="class" xsi:type="string">turf-care-financial</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="top-events-training">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">Events &amp; Training</argument>
+					<argument name="path" xsi:type="string" translate="true">events-and-training</argument>
+					<argument name="class" xsi:type="string">events-and-training</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="top-company" after="top-contact">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">Company</argument>
+					<argument name="path" xsi:type="string" translate="true">#</argument>
+					<argument name="sortOrder" xsi:type="number">400</argument>
+					<argument name="class" xsi:type="string">company</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="top-contact" before="-">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">Contact</argument>
+					<argument name="path" xsi:type="string" translate="true">contact-us</argument>
+					<argument name="sortOrder" xsi:type="number">400</argument>
+					<argument name="class" xsi:type="string">contact-us</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Customer\Block\Account\Customer" name="top.company.links" template="Magento_Theme::sub_links.phtml" after="top-company"/>
+		</referenceBlock>
+		<block class="Magento\Customer\Block\Account\Navigation" name="company.sub.links">
+			<arguments>
+				<argument name="css_class" xsi:type="string">company header links</argument>
+			</arguments>
+		</block>
+		<referenceBlock name="company.sub.links">
+			<block class="Magento\Framework\View\Element\Html\Link" name="about.company">
+				<arguments>
+					<argument name="class" xsi:type="string">about-us</argument>
+					<argument name="label" xsi:type="string" translate="true">About</argument>
+					<argument name="path" xsi:type="string" translate="true">about-us</argument>
+					<argument name="sortOrder" xsi:type="number">400</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="company.careers">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">Careers</argument>
+					<argument name="path" xsi:type="string" translate="true">careers</argument>
+					<argument name="sortOrder" xsi:type="number">400</argument>
+					<argument name="class" xsi:type="string">careers</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="company.team">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">The Team</argument>
+					<argument name="path" xsi:type="string" translate="true">the-team</argument>
+					<argument name="sortOrder" xsi:type="number">400</argument>
+					<argument name="class" xsi:type="string">the-team</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="company.news">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">News</argument>
+					<argument name="path" xsi:type="string" translate="true">news-blog</argument>
+					<argument name="sortOrder" xsi:type="number">400</argument>
+					<argument name="class" xsi:type="string">news-blog</argument>
+				</arguments>
+			</block>
+		</referenceBlock>
+		<move element="company.sub.links" destination="top.company.links"/>
+		<referenceContainer name="header.panel">
+			<block class="Magento\Customer\Block\Account\Navigation" name="custom.top.links" after="-">
+				<arguments>
+					<argument name="css_class" xsi:type="string">custom-top-links header links</argument>
+				</arguments>
+			</block>
+		</referenceContainer>
+		<move element="store_language" destination="header.panel" before="custom.top.links"/>
+		<referenceContainer name="sidebar.additional">
+			<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+			<referenceBlock name="wishlist_sidebar" remove="true" />
+			<referenceBlock name="sale.reorder.sidebar" remove="true"/>
+		</referenceContainer>
+	</body>
+</page>

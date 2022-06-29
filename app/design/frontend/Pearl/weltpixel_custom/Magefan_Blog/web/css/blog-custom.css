@@ -1,0 +1,71 @@
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+
+.post-list-wrapper.blog-widget-recent:not(.blog-widget-recent-masonry) .post-holder {
+    width: 30%;
+    height: 350px;
+}
+.post-list-wrapper.blog-widget-recent:not(.blog-widget-recent-masonry) .post-holder:nth-child(2n+1) {
+    clear:unset;
+}
+
+.post-holder {
+    border: none;
+    padding: 0px;
+}
+
+.blog-widget-recent .post-description .post-text-hld {
+    min-height: unset;
+}
+
+
+.blog-widget-recent .post-description .post-text-hld p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 137px;
+    font-size: 12px;
+    margin-left: 0px;
+}
+
+.post-publish-date {
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.post-content .post-description .post-ftimg-hld {
+    margin: 0px;
+}
+
+.blog-widget-recent .post-holder {
+    margin: 0 2%;
+    background-color: #ffffff;
+    border-radius: 0px;
+}
+
+.blog-widget-recent .post-holder:nth-child(1) {
+    margin-left: 0px;
+}
+
+.blog-widget-recent .post-holder:nth-child(3) {
+    margin-right: 0px;
+}
+
+.post-content .post-description .clearfix {
+    padding: 10px 0px;
+}
+.cms-index-index .post-content .post-description .clearfix {
+    padding: 10px 10px;
+    margin-bottom: -25px;
+}
+
+.post-content .post-description .post-text-hld.clearfix p {
+    margin-bottom: 12px;
+}
+.blog-page .page-main{
+    padding:15px!important;
+}

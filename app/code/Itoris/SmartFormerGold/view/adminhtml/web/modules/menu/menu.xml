@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<menu>
+	<toplevel name="Form">
+		<sublevel action="saveForm" preload="" img="save.gif" name="Save Form (Ctrl+S)" />
+		<sublevel action="formProperties" preload="" name="Properties" />
+		<sublevel action="clearForm" preload="" img="cleanup.gif" separator="true" name="Clear Form" />
+		<sublevel action="exitForm" preload="" separator="true" img="exit.gif" name="Exit" />
+	</toplevel>
+	<toplevel name="Edit">
+<!--		<sublevel action="" preload="" img="undo.gif" name="Undo" />
+		<sublevel action="" preload="" img="redo.gif" name="Redo" /> -->
+		<sublevel action="cutElements" preload="" img="cut.gif" name="Cut" />
+		<sublevel action="copyElements" preload="" img="copy.gif" name="Copy" />
+		<sublevel action="pasteElements" preload="" img="paste.gif" name="Paste" />
+		<sublevel action="deleteElements" preload="" img="delete.gif" name="Delete" />
+		<sublevel action="selectAll" preload="" separator="true" name="Select All" />
+		<sublevel action="deselectAll" preload="" name="Deselect All" />
+<!--		<sublevel action="" preload="" img="move_to_page.gif" separator="true" name="Move to Page..." /> -->
+	</toplevel>
+	<toplevel name="Tools">
+		<sublevel action="phpEditor" preload="" img="php.gif" name="PHP Editor" />
+		<sublevel action="htmlEditor" preload="" img="html.gif" name="HTML Editor" />
+		<sublevel action="jsEditor" preload="" name="JavaScript Editor" />
+		<sublevel action="cssEditor" preload="" name="CSS Editor" />
+		<sublevel action="showTemplateEditor" preload="" img="email_template.gif" name="Email Templates" />
+		<sublevel action="showValidators" preload="" name="Validation Rules" />
+		<sublevel action="showDBEditor" preload="" img="database.gif" name="Database Designer" />
+<!--		<sublevel action="" preload="" img="background.gif" separator="true" name="Form Background" /> -->
+	</toplevel>
+	<toplevel name="Options">
+		<sublevel action="stuck_effect_click" preload="check_stuck" name="Stick Effect" />
+		<sublevel action="bind_click" preload="check_bind" name="Bind to Grid" />
+		<sublevel action="grid_click" preload="check_grid" name="Show Grid" />
+		<sublevel action="list_click" preload="check_list" name="Show Elements List" />
+		<sublevel action="props_click" preload="check_props" name="Show Properties" />
+		<sublevel action="increase_grid_click" img="gridplus.gif" separator="true" name="Increase Grid" />
+		<sublevel action="decrease_grid_click" img="gridminus.gif" name="Decrease Grid" />
+	</toplevel>
+	<toplevel name="Help">
+		<sublevel action="openHelpTopics" img="help.gif" name="Help Topics" />
+		<sublevel action="openForum" name="Go to Forum" />
+		<sublevel action="contactIToris" name="Contact IToris" />
+		<sublevel action="aboutSFG" separator="true" name="About SFG" />
+	</toplevel>
+</menu>

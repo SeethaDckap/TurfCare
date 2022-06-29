@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<e-templates>
+  <email_template format="1" name="email to user" from_name="admin of website" from_email="admin@website.com" subject="Your details on website.com" cc="" bcc="" id="1"><![CDATA[
+    <p>{{template config_path="design/email/header_template"}}</p>
+    <p><strong>Dear {{name}},</strong></p>
+    <p>Thank you for contacting us! One of our representatives will reply to you shortly.</p>
+    <p>Below is the information you posted:</p>
+    <p>{{%all_data%}}</p>
+    <p>{{template config_path="design/email/footer_template"}}</p>
+  ]]></email_template>
+  <email_template format="1" name="email to admin" from_name="admin of website" from_email="admin@website.com" subject="New user details" cc="" bcc="" id="2"><![CDATA[
+    <p>{{template config_path="design/email/header_template"}}</p>
+    <p><strong>Hello Admin,</strong></p>
+    <p>The form has been submitted. Please find below the details:</p>
+    <p>{{%all_data%}}</p>
+    <p>{{template config_path="design/email/footer_template"}}</p>
+  ]]></email_template>
+  <email_template format="1" name="your custom email" from_name="From Name" from_email="from@email.com" subject="Custom email subject" cc="" bcc="" id="3"><![CDATA[
+    <p>{{template config_path="design/email/header_template"}}</p>
+    <p>Fill in your custom email. You can create as meny templates as you wish. Click 'New Document' icon to start</p>
+    <p>&nbsp;</p>
+    <p>{{template config_path="design/email/footer_template"}}</p>
+  ]]></email_template>
+</e-templates>

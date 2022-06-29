@@ -1,0 +1,209 @@
+<?php
+/**
+ * Magedelight
+ * Copyright (C) 2016 Magedelight <info@magedelight.com>
+ *
+ * @category Magedelight
+ * @package Magedelight_Orderbysku
+ * @copyright Copyright (c) 2016 Mage Delight (http://www.magedelight.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author Magedelight <info@magedelight.com>
+ */
+?>
+<?php
+    $helper = $this->helper('Magedelight\Orderbysku\Helper\Data');
+    $fullAction = $helper->getCurrentActionPath();
+    $storeId = $helper->getStoreId();
+    $isEnabled = $helper->isEnabled($storeId);
+    $isEnabledForGuest = $helper->isEnabledForGuest($storeId);
+    $defaultQtyValue = $block->getDefaultQtyValue();
+    //TC-252 Line level comment customization
+    $helperCartProduct = $this->helper('SetuBridge\CartProductComment\Helper\Data');
+    $cartCommentStatus = $helperCartProduct->getStatus();
+    $placeholderText = $helperCartProduct->getPlaceholderText();
+if (($isEnabled && ($fullAction != 'orderbysku_index_index')) ||
+        ($isEnabledForGuest && $isEnabled && $fullAction == 'orderbysku_index_index') ||
+        !empty($helper->isCustomerLoggedIn())) {
+    ?>
+<div class="orderbyskupage">
+    <div class="widget block block-addbysku ">
+        <div class="block-content">
+
+            <div class="container">
+                <div class="row">
+            <form id="product_addtocart_form_1" enctype="multipart/form-data" data-mage-init='{"validation": {}}'  method="post" action="<?= $this->getUrl('orderbysku/customer/addtocart/form/sku') ?>" class="form form-addbysku" novalidate="novalidate">
+                <?= $block->getBlockHtml('formkey')?>
+                <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                <div class="box box-items">
+                    <input type="hidden" id="defaultMinQty" name="defaultMinQty" value="<?= $defaultQtyValue['min_sale_qty'] ?>" />
+                    <input type="hidden" id="defaultMaxQty" name="defaultMaxQty" value="<?= $defaultQtyValue['max_sale_qty'] ?>" />
+                    <fieldset  data-container="items" class="fieldset" id="orderbyskublock">
+                        <div class="fields additional firstItem Item-0">
+                            <input type="hidden" name="product-type" class="product-type" value="">
+                            <input type="hidden" name="parent-class-id" class="parent-class-id" value="">
+                            <input type="hidden" name="item-id" class="item-id" value="">
+                            <div class="field sku required">
+                                <label class="label" for="id-items0sku"><span><?= __('SKU'); ?></span></label>
+                                <div class="control">
+                                    <input type="text" aria-required="true" autocomplete="off" class="input-text sku-value" data-validate="{
+                                           &quot;required-if-all-sku-empty-and-file-not-loaded&quot;: {
+                                           specifiedId: &quot;#customer_sku_csv&quot;,
+                                           dataSku: &quot;data-sku&quot;}}" value="" data-old-productsku="" data-suggestion-url="<?= $this->getUrl('orderbysku/ajaxrequest/suggestion'); ?>" data-sku="true" data-id="0sku"  data-item="0" id="id-items0sku" name="items[0][sku]">
+                                    <div class="sku-suggestions sku-suggestions-0" style="display: none; width: 255px;"></div>
+                                </div>
+                            </div>
+                            <div class="field qty required">
+                                <label class="label" for="id-items0qty"><span><?= __('Qty'); ?></span></label>
+                                <div class="control">
+                                    <input type="number" aria-required="true" class="qty" data-validate="{&quot;required-number-if-specified&quot;: &quot;[data-id=0sku]&quot;,&quot;validate-number&quot;: true,&quot;validate-greater-than-zero&quot;: true,&quot;validate-number-range&quot;: &quot;0.0001-99999999.9999&quot;}" value="<?= $defaultQtyValue['min_sale_qty']; ?>" maxlength="13" class="qty" id="id-items0qty" name="items[0][qty]">
+                                </div>
+                                <note id="note-item-0">
+                                    <span><?= __('Min:'); ?> <?= $defaultQtyValue['min_sale_qty']; ?>  </span>
+                                    <span style="white-space: nowrap;"><?= __('Max:'); ?> <?= $defaultQtyValue['max_sale_qty']; ?> </span>
+                                </note>
+                            </div>
+                            <div class="field product-price price-container-0" style="display: none;">
+                                <label class="label" for="id-items0price"><span><?= __('List Price'); ?></span></label>
+                                <div class="obs-price product-price-0"></div>
+                            </div>
+                            <div class="field product-price customer-price-container-0" style="display: none;">
+                                <label class="label" for="id-customerprice"><span><?= __('Your Cost'); ?></span></label>
+                                <div class="customer-price product-customer-price-0"></div>
+                            </div>
+                            <div class="field obs-product-info name-container-0" style="display: none;">
+                                <label class="label" for="id-items0name"><span><?= __('Name'); ?></span></label>
+                                <div class="obs-product-name product-name-0"></div>
+                            </div>
+                            <div class="field obs-product-detail">
+                                <div class="product-sku-details product-item-0"></div>
+                            </div>
+                            <div id="product-options-wrapper-0" class="orderbysku-pro-opt" data-itemnumber='0' data-product-id='0' name="items[0][super_attribute]" style="display: none"></div>
+                            <?php //TC-252 Line level comment customization?>
+                            <div class="field obs-product-info-comments line-comments-0" style="display: none;">
+                                <label class="label" for="id-items0comments"><span><?= __('Comment'); ?></span></label>
+                                <div class="control">
+                                    <input type="text" aria-required="true" class="product_comment" class="product_comment" id="id-items0productcomment" name="items[0][product_comment]"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="actions-toolbar add-row">
+                        <div class="primary">
+                            <button data-role="add" class="action add-field-button" title="Add Product" type="button" >
+                                <span>+ <?= __('Add Product'); ?></span>
+                            </button>
+                            <button class="action tocart primary" title="Add to Cart" type="button" id="submit-sku-form">
+                                <span><?= __('Add to Cart'); ?></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </form>
+            <form id="product_addtocart_form_2" enctype="multipart/form-data" data-mage-init='{"validation": {}}'  method="post" action="<?= $this->getUrl('orderbysku/customer/addtocart/form/csv') ?>" class="form form-addbysku" novalidate="novalidate">
+                <?= $block->getBlockHtml('formkey')?>
+                <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                <div class="box box-upload">
+                    <fieldset  class="fieldset">
+                        <div class="field upload skus">
+                            <label for="customer_sku_csv" class="label"><span><?= __('Upload CSV File'); ?> </span></label>
+                            <div class="control">
+                                <input id="uploadFile" placeholder="<?= __('Choose File');?>" disabled="disabled"  />
+                                <div class="fileUpload btn btn-primary">
+                                    <span><?= __('Upload');?></span>
+
+                                    <input data-validate="{required:false, 'validate-custom-file-csv':true}" type="file" name="file" data-reset="true" id="customer_sku_csv" class="upload" value="">
+                                </div>
+                                <button class="action reset" type="button"><span><?= __('Reset'); ?></span></button>
+                                <button class="action mappingskus" type="button"><span><?= __('Check Data'); ?></span></button>
+                                <a class="down-sample" href="<?= $this->getUrl("orderbysku/customer/sampledata"); ?>"><button class="action" type="button"><span><?= __('Download Sample'); ?></span></button></a>
+                                <div class="note-massege"></div>
+                                <div class="note">
+                                    <p><?= __('File extensions allowed: .csv'); ?> </p>
+                                    <p><?= $this->getHelper()->getUploadFileNote(); ?> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="csv-error-skus"></div>
+                    <div class="item-sku-mapping"></div>
+                </div>
+                </div>
+            </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<?php } ?>
+
+<style>
+
+.sku-suggestions {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+/*@media screen and (min-width: 768px) {
+    .box box-upload{
+        width: 45% !important;
+        clear: right !important;
+    }
+}*/
+
+@media all and (min-width: 768px), print {
+
+    .box-upload{
+        clear: right !important;
+    }
+
+    .orderbysku-customer-index .orderbyskupage .box-items .fields .obs-product-info > label.label{
+        padding-top: 15px !important;
+    }
+
+    .orderbysku-customer-index .orderbyskupage .box-items .actions-toolbar.add-row{
+        padding: 14px 16px !important;
+        margin-top: 48px !important;
+    }
+    .orderbysku-index-index .orderbyskupage .box-items .actions-toolbar.add-row{
+        padding: 14px 16px !important;
+        margin-top: 48px !important;
+    }
+    .orderbysku-customer-index .orderbyskupage .box-items .fields{
+        border-bottom: 0px solid #dddddd !important;
+    }
+
+    .orderbysku-index-index .orderbyskupage .box-items .fields{
+        border-bottom: 0px solid #dddddd !important;
+    }
+
+    .orderbysku-index-index .orderbyskupage .box-items .fields .product-thumbnail{
+        padding: 0 25px 0 20px !important;
+    }
+
+    .orderbysku-customer-index .orderbyskupage .box-items .fields .product-thumbnail{
+        padding: 0 25px 0 20px !important;
+    }
+
+    .orderbysku-customer-index .orderbyskupage .box-items .fields > .field.qty{
+        margin-left: -14px !important;
+    }
+    .orderbysku-customer-index .orderbyskupage .box-items .fields .product-sku-details .filter-options-content-obs{
+        top: 171px !important;
+    }
+    .orderbysku-customer-index .item-sku-mapping .itemtable .item-qty{
+        width: 12% !important;
+    }
+
+    .orderbysku-customer-index .orderbyskupage .box-items .fields .obs-product-info{
+        text-align: center !important;
+        margin-top: -16px !important;
+    }
+
+    .orderbysku-index-index .item-sku-mapping .itemtable .item-qty{
+        width: 12% !important;
+    }
+}
+</style>

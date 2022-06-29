@@ -1,0 +1,76 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+$welcomeMessage = $block->getWelcome();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+if($customerSession->isLoggedIn()){
+    $loggedIn = 1;
+}else{
+    $loggedIn = 0;
+}
+?>
+<?php switch ($block->getShowPart()):
+    case 'welcome': ?>
+        <li class="greet welcome" data-bind="scope: 'customer'">
+            <!-- ko if: customer().fullname  -->
+            <span class="logged-in" data-bind="text: new String('<?= $block->escapeHtml(__('Welcome, %1!', '%1')) ?>').replace('%1', customer().firstname)">
+            </span>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().fullname  -->
+            <span class="not-logged-in" data-bind='html:"<?= $block->escapeHtml($welcomeMessage) ?>"'></span>
+            <?= $block->getBlockHtml('header.additional') ?>
+            <!-- /ko -->
+        </li>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+        <script>
+            require([
+                'jquery'
+            ], function ($) {
+
+                $( document ).ready(function() {
+                    $(".account-icon-mobile").on("click", function(){
+                        var x = document.getElementById("account-drop-open");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+
+                    });
+                });
+
+
+                var ss = $(window).width();
+                if ($(window).width() > '767' && $(window).width() < '925' && <?php echo $loggedIn ?>){
+                    $('.custom-top-links').css('max-width', '30%');
+                }
+            });
+        </script>
+        <?php break; ?>
+
+    <?php case 'other': ?>
+        <?= $block->getChildHtml() ?>
+        <?php break; ?>
+
+    <?php endswitch; ?>

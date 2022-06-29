@@ -1,0 +1,75 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_SMARTFORMER_GOLD
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php if ($block->getForms() && count($block->getForms())): ?>
+    <div class="table-wrapper sfg-forms">
+        <table class="data table table-sfg-forms" id="my-sfg-forms-table">
+            <caption class="table-caption"><?php /* @escapeNotVerified */ echo __('My Forms') ?></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col date" width="100"><?php echo __('Created') ?></th>
+                    <th scope="col" class="col date" width="100"><?php echo __('Updated') ?></th>
+                    <th scope="col" class="col item"><?php echo __('Form Name') ?></th>
+                    <th scope="col" class="col actions" width="150">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($block->getForms() as $_form): ?>
+                <tr>
+                    <td data-th="<?php echo $block->escapeHtml(__('Created')) ?>" class="col date"><?php echo $block->dateFormat($_form->getCreated()); ?></td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Updated')) ?>" class="col date"><?php echo $_form->getUpdated() != '0000-00-00 00:00:00' ? $block->dateFormat($_form->getUpdated()) : __('Never'); ?></td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Form Name')) ?>" class="col item">
+                        <strong class="form-name">
+                            <?php echo $block->escapeHtml($block->getFormName($_form->getFormId())) ?>
+                        </strong>
+                    </td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                        <a href="<?php echo $block->getDetailsLink($_form->getUniqueKey()) ?>" class="action more"><span><?php echo __('See Details') ?></span></a>
+                        <?php if ($block->getEditLink($_form->getFormId(), $_form->getUniqueKey())) { ?>
+                            <a href="<?php echo $block->getEditLink($_form->getFormId(), $_form->getUniqueKey()) ?>" class="action more"><span><?php echo __('Edit') ?></span></a>
+                        <?php } ?>
+                        <a href="<?php echo $block->getPdfLink($_form->getUniqueKey()) ?>" class="action more"><span><?php echo __('PDF') ?></span></a>
+                        
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getToolbarHtml()): ?>
+        <div class="toolbar products-sfg-forms-toolbar bottom">
+            <?php echo $block->getToolbarHtml() ?>
+        </div>
+    <?php endif; ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('You have submitted no forms.') ?></span></div>
+<?php endif; ?>
+<div class="actions-toolbar">
+    <div class="secondary">
+        <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>">
+            <span><?php echo __('Back') ?></span>
+        </a>
+    </div>
+</div>

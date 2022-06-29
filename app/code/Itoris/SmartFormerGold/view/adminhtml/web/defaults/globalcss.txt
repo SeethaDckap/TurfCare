@@ -1,0 +1,3 @@
+.sfg-messages .sfg-fail {
+	color: #ff0000;
+}

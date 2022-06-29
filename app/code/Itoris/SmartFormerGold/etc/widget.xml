@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="sfg_form_block" class="Itoris\SmartFormerGold\Block\Widget\Block" placeholder_image="Itoris_SmartFormerGold::images/widget_form.png">
+        <label translate="true">SmartFormer Gold Form</label>
+        <description translate="true">Insert SFG form into CMS page or static block</description>
+        <parameters>
+            <parameter name="form_id" xsi:type="select" visible="true" required="true" sort_order="10" source_model="Itoris\SmartFormerGold\Model\Config\Source\Formselect">
+                <label translate="true">Select Form</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

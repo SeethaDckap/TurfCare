@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="LeanSwift\EconnectSXE\Model\Catalog\Product\Stock" type="Turfcare\EconnectSXE\Model\Catalog\Product\Stock"/>
+    <preference for="LeanSwift\EconnectSXE\Model\Catalog\Import\SaveProduct" type="Turfcare\EconnectSXE\Model\Catalog\Import\SaveProduct"/>
+    <preference for="LeanSwift\EconnectSXE\Model\Catalog\Import\ProductPrice" type="Turfcare\EconnectSXE\Model\Catalog\Import\ProductPrice"/>
+    <preference for="LeanSwift\EconnectSXE\Model\Sales\Import" type="Turfcare\EconnectSXE\Model\Sales\Import"/>
+<!--
+    <preference for="LeanSwift\EconnectSXE\Model\Soap\Client\Connect" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>
+-->
+    <preference for="LeanSwift\EconnectSXE\Model\Catalog\Import\SchedulerProductPrice" type="Turfcare\EconnectSXE\Model\Catalog\Import\SchedulerProductPrice"/>
+    <preference for="LeanSwift\EconnectSXE\Model\Catalog\Product\Price" type="Turfcare\EconnectSXE\Model\Catalog\Product\Price"/>
+    <preference for="LeanSwift\EconnectSXE\Observer\CustomerPrice\BindCustomerPriceonListingLoadObserver" type="Turfcare\EconnectSXE\Observer\CustomerPrice\BindCustomerPriceonListingLoadObserver"/>
+    <virtualType name="stockRequestModified" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect">
+        <arguments>
+            <argument name="logger" xsi:type="object">StockSynchLogger</argument>
+            <argument name="loggerEnablePath" xsi:type="const">
+                LeanSwift\EconnectSXE\Helper\Configurations::XML_STOCK_ENABLE_LOGGER
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Turfcare\EconnectSXE\Model\Catalog\Product\Stock">
+        <arguments>
+            <argument name="ProductStock" xsi:type="object">stockRequestModified</argument>
+            <argument name="warehousePath" xsi:type="const">LeanSwift\EconnectSXE\Helper\Configurations::XML_DEFAULT_WAREHOUSE</argument>
+        </arguments>
+    </type>
+<!--    <preference for="StockRequest" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>-->
+<!--    <preference for="CustomerPriceRequest" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>-->
+<!--    <preference for="ProductPriceRequest" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>-->
+<!--    <preference for="OrderCreateRequest" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>-->
+<!--    <preference for="OrderStatusRequest" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>-->
+<!--    <preference for="CustomerSynchRequest" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>-->
+<!--    <preference for="WareHouseRequest" type="Turfcare\EconnectSXE\Model\Soap\Client\Connect"/>-->
+
+   <preference for="LeanSwift\EconnectSXE\Model\Customer\Import\Address" type="Turfcare\EconnectSXE\Model\Customer\Import\Address"/>
+    <preference for="LeanSwift\EconnectSXE\Controller\Order\History" type="Turfcare\EconnectSXE\Controller\Order\History"/>
+    <preference for="LeanSwift\EconnectSXE\Model\Sales\ION\Order" type="Turfcare\EconnectSXE\Model\Sales\ION\Order"/>
+    <preference for="LeanSwift\EconnectSXE\Model\Catalog\Import\SchedulerProduct" type="Turfcare\EconnectSXE\Model\Catalog\Import\SchedulerProduct"/>
+    <preference for="LeanSwift\EconnectSXE\Model\Sales\Order" type="Turfcare\EconnectSXE\Model\Sales\Order"/>
+</config>

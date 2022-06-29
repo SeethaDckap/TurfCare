@@ -1,0 +1,29 @@
+@cart_text_color:#E62633;
+.shipping {
+  &-address {
+    &-item {
+      .shipping {
+        &-address {
+          &-area {
+            min-height: 260px;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+.product-item-details{
+  .item-info-container{
+    color: @cart_text_color;
+    font-size:10px !important;
+    // TC-216 Remove capitalization per request
+    text-transform: none;
+  }
+}
+.opc-wrapper{
+  .action-select-shipping-item{
+    float:none;
+    margin: 0px 0px 20px 0px;
+  }
+}

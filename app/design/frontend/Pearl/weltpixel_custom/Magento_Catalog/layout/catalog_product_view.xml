@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="product.info.review" remove="false"/>
+    <referenceBlock name="product.info.overview" remove="true"/>
+    <referenceBlock name="product.attributes" remove="false" />
+    <referenceBlock name="reviews.tab" remove="true"></referenceBlock>
+    <referenceBlock name="product.review.form" remove="true" />
+    <referenceBlock name="product.info.social" remove="true"/>
+    <!--<referenceContainer name ="product.info.stock.sku">
+        <container name="superseded_parts_information" htmlTag="div" htmlClass="superseded_parts_information" after="-">
+            <block class="LeanSwift\Turfcare\Block\Product\SupersededInformation" name="supersededinformation" template="Magento_Catalog::product/view/supersededinformation.phtml"/>
+        </container>
+    </referenceContainer>-->
+</page>

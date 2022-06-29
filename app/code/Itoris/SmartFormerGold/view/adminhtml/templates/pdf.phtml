@@ -1,0 +1,41 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_SMARTFORMER_GOLD
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php if ($submission = $block->getSubmission()): ?>
+    <div class="table-wrapper sfg-submission" style="clear:both">
+        <table class="data table table-sfg-submission" id="my-sfg-submission-table">
+            <tbody>
+                <?php foreach ($submission as $key => $value): ?>
+                <tr>
+                    <th class="col info" width="100"><?php echo $key; ?></th>
+                    <td class="col info"><?php echo $value; ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('Submission not found.') ?></span></div>
+<?php endif; ?>

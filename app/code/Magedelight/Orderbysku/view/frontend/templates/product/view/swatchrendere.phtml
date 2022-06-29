@@ -1,0 +1,25 @@
+<?php
+/** @var $block \Magento\Swatches\Block\Product\Renderer\Listing\Configurable */
+$productId = $block->getProduct()->getId();
+?>
+
+<div class="swatch-opt mdswatch-opt-<?= /* @escapeNotVerified */ $block->getProduct()->getId() ?>"></div>
+<script>
+    require([
+        'jquery',
+        'jquery/ui',
+        'Magedelight_Orderbysku/js/md-swatch-renderer',
+       ], function ($) {
+        var jsonConfig = <?= /* @escapeNotVerified */ $block->getJsonConfig() ?>;
+
+        $('.mdswatch-opt-<?= /* @escapeNotVerified */ $block->getProduct()->getId() ?>').mdSwatchRenderer({
+            selectorProduct: '.product-item-details',
+            onlySwatches: true,
+            numberToShow: <?= /* @escapeNotVerified */ $block->getNumberSwatchesPerProduct() ?>,
+            mdjsonConfig: jsonConfig,
+            mdjsonSwatchConfig: <?= /* @escapeNotVerified */ $block->getJsonSwatchConfig() ?>,
+            
+        });
+        
+    });
+</script>

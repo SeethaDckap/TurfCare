@@ -1,0 +1,59 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_SMARTFORMER_GOLD
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php if ($submission = $block->getSubmission()): ?>
+    <div style="margin-bottom:20px; text-align:right">
+        <button class="action" style="float:left" onclick="window.location='<?php echo $block->escapeUrl($block->getBackUrl()) ?>'"><span><?php echo __("Back to Forms"); ?></span></button>
+        <button class="action" onclick="window.location='<?php echo $block->escapeUrl($block->getPdfLink()) ?>'"><span><?php echo __("Convert to PDF"); ?></span></button>
+        <?php if ($block->form->getConfig()->allow_editing) { ?>
+            <button class="action primary" onclick="window.location='<?php echo $block->escapeUrl($block->getEditLink()) ?>'"><span><?php echo __("Edit Form"); ?></span></button>
+        <?php } ?>
+    </div>
+    <div class="table-wrapper sfg-submission" style="clear:both">
+        <table class="data table table-sfg-submission" id="my-sfg-submission-table">
+            <caption class="table-caption"><?php echo __('My form') ?></caption>
+            <tbody>
+                <?php foreach ($submission as $key => $value): ?>
+                <tr>
+                    <th class="col info" width="100"><?php echo $key; ?></th>
+                    <td class="col info"><?php echo $value; ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <style>
+        #my-sfg-submission-table th:before, #my-sfg-submission-table td:before {display:none}
+    </style>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('Form not found.') ?></span></div>
+<?php endif; ?>
+<div class="actions-toolbar">
+    <div class="secondary">
+        <a class="action" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>">
+            <span><?php echo __('Back') ?></span>
+        </a>
+    </div>
+</div>

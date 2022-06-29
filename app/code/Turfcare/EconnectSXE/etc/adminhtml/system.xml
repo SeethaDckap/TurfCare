@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="econnectSXE" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>eConnect SX.e</label>
+            <tab>leanswift</tab>
+            <resource>LeanSwift_EconnectSXE::config_leanswift</resource>
+             <group id="shipping_method" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Shipping Method</label>
+                <field id="m3_delivery_method" translate="label comment tooltip" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>M3 Delivery Method Mapping</label>
+                    <frontend_model>Turfcare\EconnectSXE\Block\Backend\Mapping\Checkout\Shipping</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[M3 mapping with shipping method]]></comment>
+                </field>
+            </group>
+            <group id="sales" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <field id="order_sync_limit" translate="label" type="text" sortOrder="200" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Order Synchronization Limit</label>
+                    <validate>validate-number validate-not-negative-number</validate>
+                    <comment><![CDATA[Enter months limit for the orders to be synchronized <br>
+                                         <ul style="list-style: circle; padding-left: 30px; font-size: 11px; width: 310px">
+                                        <li>If you enter 6, orders from the past 6 months only will be synchronized with M3.</li>
+                                        <li>If left empty, ALL the orders will be synchronized. </li><ul>]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="product_cron_group" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Product</label>
+                <field id="new_product" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Cron settings for New Product Sync</label>
+                    <comment><![CDATA[Ex. Every 2 Mins = */2 * * * * (Leave blank to disable)]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

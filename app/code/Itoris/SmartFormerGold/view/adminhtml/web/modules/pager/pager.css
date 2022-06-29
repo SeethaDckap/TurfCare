@@ -1,0 +1,61 @@
+.pager-arrow {
+	cursor:pointer;
+	float:left;
+	margin-top:3px;
+}
+
+.pager-area {
+	width:600px;
+	height:20px;
+	float:left;
+	border:1px solid #bbbbbb;
+	border-bottom:none;
+	margin-top:1px;
+	background-color:#ffffff;
+	position:relative;
+	overflow:hidden;
+}
+
+.pager-inner-area {
+	height:18px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+.page-tab {
+	float:left;
+	padding-left:20px;
+	padding-right:20px;
+	border:1px solid #dddddd;
+	border-bottom:none;
+	border-bottom:none;
+	margin-top:1px;
+	font-size:12px;
+	font-family:Arial;
+	line-height:18px;
+	margin-right:1px;
+	background-color:#f5f5f5;
+	cursor:pointer;
+}
+
+.page-tab:hover {
+	background-color:#dddddd;
+}
+
+.page-tab-active {
+	float:left;
+	padding-left:20px;
+	padding-right:20px;
+	border:1px solid #dddddd;
+	border-bottom:none;
+	border-bottom:none;
+	margin-top:1px;
+	font-size:12px;
+	font-family:Arial;
+	line-height:18px;
+	color:#ffffff;
+	margin-right:1px;
+	background-color:#888888;
+	cursor:default;
+}

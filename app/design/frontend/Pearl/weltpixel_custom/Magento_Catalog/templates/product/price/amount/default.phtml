@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_product = $objectManager->create('Magento\Catalog\Model\Product')->load($block->getSaleableItem()->getId());
+
+$om = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $om->get('Magento\Customer\Model\SessionFactory')->create();
+$customerData = $customerSession->getCustomer();
+$erpCustomerCodes = explode(",", $customerData->getErpCustomerCode());
+$erpProductCategoryCode=explode(",", $_product->getErpProductCategoryCode());
+$flag=false;
+if(count($erpProductCategoryCode) > 0) {
+    foreach($erpProductCategoryCode as $ProductCategoryCode) {
+        if(in_array($ProductCategoryCode,$erpCustomerCodes)) {
+            $flag=true;
+            break;
+        }
+    }
+}
+?>
+
+<?php /** @var \Magento\Framework\Pricing\Render\Amount $block */ ?>
+<?php
+if($customerSession->isLoggedIn()  && ($flag==1) && !empty($_product->getErpProductCategoryCode())):
+?>
+<span class="price-container <?= /* @escapeNotVerified */ $block->getAdjustmentCssClasses() ?>"
+        <?= $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+    <span <?php if ($block->getPriceId()): ?> id="<?= /* @escapeNotVerified */ $block->getPriceId() ?>"<?php endif;?>
+        <?= ($block->getPriceDisplayLabel()) ? 'data-label="' . $block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes() . '"' : '' ?>
+        data-price-amount="<?= /* @escapeNotVerified */ $block->getDisplayValue() ?>"
+        data-price-type="<?= /* @escapeNotVerified */ $block->getPriceType() ?>"
+        class="price-wrapper <?= /* @escapeNotVerified */ $block->getPriceWrapperCss() ?>"
+    ><?= /* @escapeNotVerified */ $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()) ?></span>
+    <?php if ($block->hasAdjustmentsHtml()): ?>
+        <?= $block->getAdjustmentsHtml() ?>
+    <?php endif; ?>
+    <?php if ($block->getSchema()): ?>
+        <meta itemprop="price" content="<?= /* @escapeNotVerified */ $block->getDisplayValue() ?>" />
+        <meta itemprop="priceCurrency" content="<?= /* @escapeNotVerified */ $block->getDisplayCurrencyCode() ?>" />
+    <?php endif; ?>
+</span>
+<?php endif; ?>
+

@@ -1,0 +1,8 @@
+<?php $_product = $this->getProduct();
+$_turfcareHelper = $this->helper('LeanSwift\Turfcare\Helper\Data');
+$isSupersededParts = $_product->getsupersedes();
+if ($isSupersededParts && $_turfcareHelper->isSupersededItemExist($isSupersededParts)):?>
+<div class="superseded_parts">
+        <p><i class="icon-warning-sign"></i><?php echo $block->escapeHtml(__('This Item Has Been Superseded')); ?><i class="icon-warning-sign"></i></p>
+</div>
+<?php endif; ?>

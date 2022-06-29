@@ -1,0 +1,14 @@
+<?php
+/**
+ * @package phpSvgLib
+ * @link    http://github.com/PhenX/phpSvgLib
+ * @author  Fabien Ménager <fabien.menager@gmail.com>
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ */
+
+namespace Itoris\SmartFormerGold\plugins\dompdf\lib\phpSvgLib\src\Svg\Tag;
+
+class Anchor extends Group
+{
+
+} 

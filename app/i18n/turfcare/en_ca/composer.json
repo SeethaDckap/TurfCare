@@ -1,0 +1,11 @@
+{
+  "name": "turfcare/magento-2-english-CA-language-pack",
+  "description": "Turf Care English (CA) language package for Magento 2",
+  "type": "magento2-language",
+  "version": "1.0.0",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ]
+  }
+}

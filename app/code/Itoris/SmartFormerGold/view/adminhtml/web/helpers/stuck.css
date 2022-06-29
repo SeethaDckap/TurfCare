@@ -1,0 +1,31 @@
+#stuckLeftLine {
+	border-left:1px dotted green;
+	position:absolute;
+	visibility:hidden;
+	top:0px;
+	width:0px;
+}
+
+#stuckRightLine {
+	border-left:1px dotted green;
+	position:absolute;
+	visibility:hidden;
+	top:0px;
+	width:0px;
+}
+
+#stuckTopLine {
+	border-top:1px dotted green;
+	position:absolute;
+	visibility:hidden;
+	left:0px;
+	height:0px;
+}
+
+#stuckBottomLine {
+	border-top:1px dotted green;
+	position:absolute;
+	visibility:hidden;
+	left:0px;
+	height:0px;
+}

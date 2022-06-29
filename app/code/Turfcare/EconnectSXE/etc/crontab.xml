@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="econnectsxe_new_product">
+        <job name="leanswift_econnectsxe_new_product_sync"
+             instance="Turfcare\EconnectSXE\Model\Catalog\Import\SchedulerProduct" method="productInventoryWithSqlQuery">
+            <config_path>econnectSXE/cron/product_cron_group/new_product</config_path>
+        </job>
+    </group>
+</config>

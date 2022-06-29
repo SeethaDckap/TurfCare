@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<msdn>
+	<element type="input,text">
+		<attributes>
+			ATOMICSELECTION,AUTOCOMPLETE,BEGIN,CLASS,CONTENTEDITABLE,DATAFLD,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,MAXLENGTH,NAME,READONLY,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,VCARD_NAME,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,ime-mode,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-align,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onchange,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel ,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselect,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,required,validation,equal-to,
+		</params>
+	</element>
+	<element type="input,password">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,AUTOCOMPLETE,BEGIN,CLASS,CONTENTEDITABLE,DATAFLD,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,MAXLENGTH,NAME,READONLY,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,VCARD_NAME,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-align,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,required,equal-to,
+		</params>
+	</element>
+	<element type="input,checkbox">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CHECKED,CLASS,DATAFLD,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,required,group-required,
+		</params>
+	</element>
+	<element type="input,radio">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CHECKED,CLASS,CONTENTEDITABLE,DATAFLD,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,group-required,
+		</params>
+	</element>
+	<element type="input,file">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,required,
+		</params>
+	</element>
+	<element type="input,button">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,CONTENTEDITABLE,DATAFLD,DATAFORMATAS,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,on-click-action,custom-js-line,save-data,disable-validation,after-submit,selected-page,redirect-url,date-input-field,date-format,email-to-admin,admin-email,admin-email-template,email-to-user,user-email-addr-field,user-email-template,pdf-page-size,pdf-orientation,
+		</params>
+	</element>
+	<element type="button">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,CONTENTEDITABLE,DATAFLD,DATAFORMATAS,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,padding,padding-bottom,padding-left,padding-right,padding-top,page-break-after,position,right,float,text-autospace,text-decoration,text-indent,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondragenter,ondragleave,ondragover,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,on-click-action,custom-js-line,save-data,disable-validation,after-submit,selected-page,redirect-url,date-input-field,date-format,email-to-admin,admin-email,admin-email-template,email-to-user,user-email-addr-field,user-email-template,pdf-page-size,pdf-orientation,inner-content,
+		</params>
+	</element>
+	<element type="input,reset">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,CONTENTEDITABLE,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			hidden-if,onactivate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+	</element>
+	<element type="input,submit">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,CONTENTEDITABLE,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,SIZE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,VALUE,
+		</attributes>
+		<styles>
+			background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onblur,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,custom-js-line,save-data,disable-validation,after-submit,selected-page,redirect-url,date-input-field,date-format,email-to-admin,admin-email,admin-email-template,email-to-user,user-email-addr-field,user-email-template,
+		</params>
+	</element>
+	<element type="select">
+		<attributes>
+			ACCESSKEY,ALIGN,ATOMICSELECTION,CLASS,DATAFLD,DATASRC,DIR,DISABLED,HIDEFOCUS,ID,LANG,LANGUAGE,MULTIPLE,NAME,SIZE,STYLE,TABINDEX,UNSELECTABLE,VALUE,
+		</attributes>
+		<styles>
+			ACCELERATOR,background-color,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,direction,display,font,font-family,font-size,font-style,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,opacity,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onchange,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondragenter,ondragleave,ondragover,ondrop,onerrorupdate,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,
+		</events>
+		<params>
+			hidden-if,required,select-list,
+		</params>
+	</element>
+	<element type="span">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,CONTENTEDITABLE,DATAFLD,DATAFORMATAS,DATASRC,DIR,END,HIDEFOCUS,ID,LANG,LANGUAGE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,UNSELECTABLE,
+		</attributes>
+		<styles>
+			ACCELERATOR,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,vertical-align,visibility,white-space,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecopy,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncopy,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,rich-text,
+		</params>
+	</element>
+	<element type="a">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,CONTENTEDITABLE,COORDS,DATAFLD,DATASRC,DIR,DISABLED,END,HIDEFOCUS,HREF,HREFLANG,ID,LANG,LANGUAGE,METHODS,NAME,REL,REV,SHAPE,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TARGET,TIMECONTAINER,TITLE,TYPE,UNSELECTABLE,URN,
+		</attributes>
+		<styles>
+			:active,:hover,:link,:visited,ACCELERATOR,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecopy,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncopy,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,on-click-action,custom-js-line,save-data,disable-validation,after-submit,selected-page,redirect-url,date-input-field,date-format,email-to-admin,admin-email,admin-email-template,email-to-user,user-email-addr-field,user-email-template,pdf-page-size,pdf-orientation,inner-html,
+		</params>
+	</element>
+	<element type="div">
+		<attributes>
+			ACCESSKEY,ALIGN,ATOMICSELECTION,BEGIN,CLASS,CONTENTEDITABLE,DATAFLD,DATAFORMATAS,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NOWRAP,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,UNSELECTABLE,
+		</attributes>
+		<styles>
+			:first-letter,:first-line,ACCELERATOR,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,layout-flow,layout-grid,layout-grid-char,layout-grid-line,layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,page-break-after,page-break-before,position,right,scrollbar-3dlight-color,scrollbar-arrow-color,scrollbar-base-color,scrollbar-darkshadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,float,text-align,text-align-last,text-autospace,text-decoration,text-indent,text-justify,text-kashida-space,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,white-space,width,word-break,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecopy,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncopy,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlayoutcomplete,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onscroll,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,inner-html,
+		</params>
+	</element>
+	<element type="canvas">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,COLS,CONTENTEDITABLE,DATAFLD,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,READONLY,ROWS,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,UNSELECTABLE,WRAP,
+		</attributes>
+		<styles>
+			ACCELERATOR,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,ime-mode,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,scrollbar-3dlight-color,scrollbar-arrow-color,scrollbar-base-color,scrollbar-darkshadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,float,text-align,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecopy,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onchange,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onscroll,onselect,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,required,canvas-pen-size,canvas-pen-color,canvas-background-color,
+		</params>
+	</element>
+	<element type="img">
+		<attributes>
+			ACCESSKEY,ALIGN,ALT,ATOMICSELECTION,BEGIN,BORDER,CLASS,DATAFLD,DATASRC,DIR,DYNSRC,END,GALLERYIMG,HIDEFOCUS,HSPACE,ID,ISMAP,LANG,LANGUAGE,LOOP,LOWSRC,NAME,SRC,start,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,UNSELECTABLE,USEMAP,VSPACE,
+		</attributes>
+		<styles>
+			border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,cursor,direction,display,filter,font,font-family,font-style,font-variant,font-weight,height,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,float,text-autospace,text-underline-position,top,unicode-bidi,vertical-align,visibility,word-spacing,word-wrap,width,zoom,z-index,
+		</styles>
+		<events>
+			onabort,onactivate,onafterupdate,onbeforeactivate,onbeforecopy,onbeforecut,onbeforedeactivate,onbeforepaste,onbeforeupdate,onblur,onclick,oncontextmenu,oncontrolselect,oncopy,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerror,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onload,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,captcha-type,captcha-length,captcha-symbols,captcha-field,on-click-action,custom-js-line,save-data,disable-validation,after-submit,selected-page,redirect-url,date-input-field,date-format,email-to-admin,admin-email,admin-email-template,email-to-user,user-email-addr-field,pdf-page-size,pdf-orientation,user-email-template,
+		</params>
+	</element>
+	<element type="textarea">
+		<attributes>
+			ACCESSKEY,ATOMICSELECTION,BEGIN,CLASS,COLS,CONTENTEDITABLE,DATAFLD,DATASRC,DIR,DISABLED,END,HIDEFOCUS,ID,LANG,LANGUAGE,NAME,READONLY,ROWS,STYLE,SYNCMASTER,systemBitrate,systemCaptions,systemLanguage,systemOverdubOrSubtitle,TABINDEX,TIMECONTAINER,TITLE,UNSELECTABLE,WRAP,
+		</attributes>
+		<styles>
+			ACCELERATOR,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,clear,clip,color,cursor,direction,display,filter,font,font-family,font-size,font-style,font-variant,font-weight,height,ime-mode,layout-flow,layout-grid,layout-grid-mode,left,letter-spacing,line-height,margin,margin-bottom,margin-left,margin-right,margin-top,max-height,max-width,min-height,min-width,opacity,overflow,overflow-x,overflow-y,padding,padding-bottom,padding-left,padding-right,padding-top,position,right,scrollbar-3dlight-color,scrollbar-arrow-color,scrollbar-base-color,scrollbar-darkshadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,float,text-align,text-autospace,text-decoration,text-overflow,text-transform,text-underline-position,top,unicode-bidi,visibility,width,word-spacing,word-wrap,writing-mode,z-index,zoom,
+		</styles>
+		<events>
+			onactivate,onafterupdate,onbeforeactivate,onbeforecopy,onbeforecut,onbeforedeactivate,onbeforeeditfocus,onbeforepaste,onbeforeupdate,onblur,onchange,onclick,oncontextmenu,oncontrolselect,oncut,ondblclick,ondeactivate,ondrag,ondragend,ondragenter,ondragleave,ondragover,ondragstart,ondrop,onerrorupdate,onfilterchange,onfocus,onfocusin,onfocusout,onhelp,onkeydown,onkeypress,onkeyup,onlosecapture,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout,onmouseover,onmouseup,onmousewheel,onmove,onmoveend,onmovestart,onpaste,onpropertychange,onreadystatechange,onresize,onresizeend,onresizestart,onscroll,onselect,onselectstart,ontimeerror,
+		</events>
+		<params>
+			hidden-if,required,inner-content,
+		</params>
+	</element>
+	<clarification>
+		<attributes>
+			<ACCESSKEY type="text">Sets or retrieves the accelerator key for the object.</ACCESSKEY>
+			<ALIGN type="list" list="absbottom,absmiddle,baseline,bottom,left,middle,right,texttop,top">Sets or retrieves how the object is aligned with adjacent text.</ALIGN>
+			<ALT type="text">Sets or retrieves a text alternative to the graphic.</ALT>
+			<ATOMICSELECTION type="list" list="false,true">Specifies whether the element and its contents must be selected as a whole, indivisible unit.</ATOMICSELECTION>
+			<AUTOCOMPLETE type="list" list="off,on">Sets or retrieves the status of AutoComplete for the object.</AUTOCOMPLETE>
+			<BEGIN type="text">Sets or retrieves the delay time before the timeline begins playing on the element.</BEGIN>
+			<BORDER type="pos">Sets or retrieves the width of the border to draw around the object.</BORDER>
+			<CHECKED type="bool">Sets or retrieves the state of the check box or radio button.</CHECKED>
+			<CLASS type="text">Sets or retrieves the class of the object.</CLASS>
+			<COLOR type="color">Sets or retrieves the color to be used by the object.</COLOR>
+			<CONTENTEDITABLE type="list" list="inherit,false,true">Sets or retrieves the string that indicates whether the user can edit the content of the object.</CONTENTEDITABLE>
+			<COORDS type="text">Sets or retrieves the coordinates of the object.</COORDS>
+			<DATAFLD type="text">Sets or retrieves which field of a given data source, as specified by the dataSrc property, to bind to the specified object.</DATAFLD>
+			<DATAFORMATAS type="list" list="text, html, localized-text">Sets or retrieves how to render the data supplied to the object.</DATAFORMATAS>
+			<DATASRC type="text">Sets or retrieves the source of the data for data binding.</DATASRC>
+			<DIR type="list" list="ltr,rtl">Sets or retrieves the reading order of the object.</DIR>
+			<DISABLED type="bool">Sets or retrieves the status of the object.</DISABLED>
+			<DYNSRC type="text">Sets or retrieves the address of a video clip or VRML world to display in the window.</DYNSRC>
+			<END type="text">Sets or retrieves a value indicating the end time for the element, or the end of the simple duration when the element is set to repeat.</END>
+			<FACE type="text">Sets or retrieves the current typeface family.</FACE>
+			<GALLERYIMG type="list" list="false,true">Sets or retrieves whether the My Pictures image toolbar is visible for the current image.</GALLERYIMG>
+			<HEIGHT type="pos">Sets or retrieves the height of the object.</HEIGHT>
+			<HIDEFOCUS type="bool">Sets or retrieves the value indicating whether the object visibly indicates that it has focus.</HIDEFOCUS>
+			<HREF type="text">Sets or retrieves the destination URL or anchor point.</HREF>
+			<HREFLANG type="text">Sets or retrieves the language code of the object.</HREFLANG>
+			<HSPACE type="pos">Sets or retrieves the horizontal margin for the object.</HSPACE>
+			<ID type="text">Retrieves the string identifying the object.</ID>
+			<ISMAP type="list" list="false,true">Sets or retrieves whether the image is a server-side image map.</ISMAP>
+			<LANG type="text">Sets or retrieves the language to use.</LANG>
+			<LANGUAGE type="list" list="JScript,javascript,vbs,vbscript,XML">Sets or retrieves the language in which the current script is written.</LANGUAGE>
+			<LOOP type="text">Sets or retrieves the number of times a sound or video clip will loop when activated.</LOOP>
+			<LOWSRC type="image">Sets or retrieves a lower resolution image to display.</LOWSRC>
+			<MAXLENGTH type="text">Sets or retrieves the maximum number of characters that the user can enter in a text control.</MAXLENGTH>
+			<METHODS type="text">Sets or retrieves the list of HTTP methods supported by the object.</METHODS>
+			<MULTIPLE type="bool">Sets or retrieves the Boolean value indicating whether multiple items can be selected from a list.</MULTIPLE>
+			<NAME type="text">Sets or retrieves the name of the object.</NAME>
+			<NOWRAP type="bool">Sets or retrieves whether the browser automatically performs wordwrap.</NOWRAP>
+			<READONLY type="bool">Sets or retrieves the value indicated whether the content of the object is read-only.</READONLY>
+			<REL type="list" list="Alternate,Appendix,Bookmark,Chapter,Contents,Copyright,Entry-Content,FeedUrl,Glossary,Help,Index,Next,Offline,Prev,Search,Section,Shortcut Icon,Start,Stylesheet,Subsection">Sets or retrieves the relationship between the object and the destination of the link.</REL>
+			<REV type="list" list="Alternate,Appendix,Bookmark,Chapter,Contents,Copyright,Glossary,Help,Index,Next,Prev,Section,Start,Stylesheet,Subsection">Sets or retrieves the relationship between the object and the destination of the link.</REV>
+			<SHAPE type="list" list="circ,circle,poly,polygon,rect,rectangle">Sets or retrieves the shape of the object.</SHAPE>
+			<SYSTEMCAPTIONS type="list" list="on,off">Indicates whether to display a text equivalent of the audio portion of the presentation.</SYSTEMCAPTIONS>
+			<SYSTEMOVERDUBORSUBTITLE type="list" list="overdub,subtitle">Specifies whether overdubs or subtitles render during a presentation.</SYSTEMOVERDUBORSUBTITLE>
+			<SIZE type="text">Sets or retrieves the number of rows in the list box.</SIZE>
+			<SRC type="image">Sets or retrieves a URL to be loaded by the object.</SRC>
+			<START type="list" list="fileopen,mouseover">Sets or retrieves when a video clip file should begin playing.</START>
+			<STYLE type="text">Sets an inline style for the element.</STYLE>
+			<SYNCMASTER type="bool">Sets or retrieves whether the time container must synchronize playback to this element.</SYNCMASTER>
+			<TABINDEX type="text">Sets or retrieves the index that defines the tab order for the object.</TABINDEX>
+			<TARGET type="list" list="_blank,_parent,_search,_self,_top">Sets or retrieves the window or frame at which to target content.</TARGET>
+			<TIMECONTAINER type="list" list="excl,none,par,seq">Sets or retrieves the type of timeline associated with an element.</TIMECONTAINER>
+			<TITLE type="text">Sets or retrieves advisory information (a ToolTip) for the object.</TITLE>
+			<TYPE type="list" list="text">Sets or retrieves the MIME type of the object.</TYPE>
+			<UNSELECTABLE type="bool">Specifies that an element cannot be selected.</UNSELECTABLE>
+			<URN type="text">Sets or retrieves a URN for a target document.</URN>
+			<USEMAP type="text">Sets or retrieves the URL, often with a bookmark extension (#name), to use as a client-side image map.</USEMAP>
+			<VALUE type="text">Sets or retrieves the value which is returned to the server when the form control is submitted.</VALUE>
+			<VCARD_NAME type="list" list="vCard.Business.City,vCard.Business.Country,vCard.Business.Fax,vCard.Business.Phone,vCard.Business.State,vCard.Business.StreetAddress,vCard.Business.URL,vCard.Business.Zipcode,vCard.Cellular,vCard.Company,vCard.Department,vCard.DisplayName,vCard.Email,vCard.FirstName,vCard.Gender,vCard.Home.City,vCard.Home.Country,vCard.Home.Fax,vCard.Home.Phone,vCard.Home.State,vCard.Home.StreetAddress,vCard.Home.Zipcode,vCard.Homepage,vCard.JobTitle,vCard.LastName,vCard.MiddleName,vCard.Notes,vCard.Office,vCard.Pager">Sets or retrieves the vCard value of the object to use for the AutoComplete box.</VCARD_NAME>
+			<VSPACE type="pos">Sets or retrieves the vertical margin for the object.</VSPACE>
+			<WIDTH type="text">Sets or retrieves the calculated width of the object.</WIDTH>
+			<WRAP type="list" list="soft,hard,off">Sets or retrieves how to handle wordwrapping in the object.</WRAP>
+		</attributes>
+		<styles>
+			<ACCELERATOR type="list" list="false, true">Sets or retrieves a string that indicates whether the object contains an accelerator key.</ACCELERATOR>
+			<background type="text">Sets or retrieves up to five separate background properties of the object.</background>
+			<background-attachment type="text">Sets or retrieves how the background image is attached to the object within the document.</background-attachment>
+			<background-color type="color">Sets or retrieves the color behind the content of the object.</background-color>
+			<background-image type="image">Sets or retrieves the background image of the object.</background-image>
+			<background-position type="text">Sets or retrieves the position of the background of the object.</background-position>
+			<background-position-x type="pos">Sets or retrieves the x-coordinate of the backgroundPosition property.</background-position-x>
+			<background-position-y type="pos">Sets or retrieves the y-coordinate of the backgroundPosition property.</background-position-y>
+			<background-repeat type="list" list="repeat,no-repeat,repeat-x,repeat-y">Sets or retrieves how the backgroundImage property of the object is tiled.</background-repeat>
+			<behavior type="text">Sets or retrieves the location of the Introduction to DHTML Behaviors.</behavior>
+			<border type="text">Sets or retrieves the properties to draw around the object.</border>
+			<border-bottom type="text">Sets or retrieves the properties of the bottom border of the object.</border-bottom>
+			<border-bottom-color type="color">Sets or retrieves the color of the bottom border of the object.</border-bottom-color>
+			<border-bottom-style type="list" list="none,dotted,dashed,solid,double,groove,ridge,inset,outset">Sets or retrieves the style of the bottom border of the object.</border-bottom-style>
+			<border-bottom-width type="pos">Sets or retrieves the width of the bottom border of the object.</border-bottom-width>
+			<border-color type="color">Sets or retrieves the border color of the object.</border-color>
+			<border-left type="text">Sets or retrieves the properties of the left border of the object.</border-left>
+			<border-left-color type="color">Sets or retrieves the color of the left border of the object.</border-left-color>
+			<border-left-style type="list" list="none,dotted,dashed,solid,double,groove,ridge,inset,outset">Sets or retrieves the style of the left border of the object.</border-left-style>
+			<border-left-width type="pos">Sets or retrieves the width of the left border of the object.</border-left-width>
+			<border-right type="text">Sets or retrieves the properties of the right border of the object.</border-right>
+			<border-right-color type="color">Sets or retrieves the color of the right border of the object.</border-right-color>
+			<border-right-style type="list" list="none,dotted,dashed,solid,double,groove,ridge,inset,outset">Sets or retrieves the style of the right border of the object.</border-right-style>
+			<border-right-width type="pos">Sets or retrieves the width of the right border of the object.</border-right-width>
+			<border-style type="list" list="none,dotted,dashed,solid,double,groove,ridge,inset,outset">Sets or retrieves the style of the left, right, top, and bottom borders of the object.</border-style>
+			<border-top type="text">Sets or retrieves the properties of the top border of the object.</border-top>
+			<border-top-color type="color">Sets or retrieves the color of the top border of the object.</border-top-color>
+			<border-top-style type="list" list="none,dotted,dashed,solid,double,groove,ridge,inset,outset">Sets or retrieves the style of the top border of the object.</border-top-style>
+			<border-top-width type="pos">Sets or retrieves the width of the top border of the object.</border-top-width>
+			<border-width type="pos">Sets or retrieves the width of the left, right, top, and bottom borders of the object.</border-width>
+			<bottom type="text">Sets or retrieves the bottom position of the object in relation to the bottom of the next positioned object in the document hierarchy.</bottom>
+			<clear type="list" list="none,left,right,both">Sets or retrieves whether the object allows floating objects on its left side, right side, or both, so that the next text displays past the floating objects.</clear>
+			<clip type="text">Sets or retrieves which part of a positioned object is visible.</clip>
+			<color type="color">Sets or retrieves the color of the text of the object.</color>
+			<cursor type="list" list="auto,all-scroll,col-resize,crosshair,default,hand,help,move,no-drop,not-allowed,pointer,progress,row-resize,text,vertical-text,wait">Sets or retrieves the type of cursor to display as the mouse pointer moves over the object.</cursor>
+			<direction type="list" list="ltr,rtl,inherit">Sets or retrieves the reading order of the object.</direction>
+			<display type="list" list="block,none,inline,inline-block,list-item,table-header-group,table-footer-group">Sets or retrieves whether the object is rendered.</display>
+			<filter type="text">Sets or retrieves the filter or collection of filters applied to the object.</filter>
+			<float type="list" list="none,left,right">Sets or retrieves on which side of the object the text will flow.</float>
+			<font type="text">Sets or retrieves a combination of separate font properties of the object. Alternatively, sets or retrieves one or more of six user-preference fonts.</font>
+			<font-family type="list" list="Arial,Arial Black,Arial Narrow,Book Antiqua,Bookman Old Style,Calibri,Cambria,Candara,Century,Century Gothic,Consolas,Constantia,Corbel,Courier New,Franklin Gothic Medium,Garamond,Georgia,Impact,Lucida Console,Lucida Sans Unicode,Microsoft Sans Serif,Mistral,Monotype Corsiva,MS Mincho,MS Reference Sans Serif,Segoe UI,Sylfaen,Tahoma,Times New Roman,Trebuchet MS,Verdana,ZWAdobeF">Sets or retrieves the name of the font used for text in the object.</font-family>
+			<font-size type="pos">Sets or retrieves a value that indicates the font size used for text in the object.</font-size>
+			<font-style type="list" list="normal,italic,oblique">Sets or retrieves the font style of the object as italic, normal, or oblique.</font-style>
+			<font-variant type="list" list="normal,small-caps">Sets or retrieves whether the text of the object is in small capital letters.</font-variant>
+			<font-weight type="list" list="normal,bold,bolder,lighter">Sets or retrieves the weight of the font of the object.</font-weight>
+			<height type="pos">Sets or retrieves the height of the object.</height>
+			<ime-mode type="list" list="auto,active,inactive,disabled">Sets or retrieves the state of an Input Method Editor (IME).</ime-mode>
+			<layout-flow type="list" list="horizontal,vertical-ideographic">Sets or retrieves the direction and flow of the content in the object.</layout-flow>
+			<layout-grid type="text">Sets or retrieves the composite document grid properties that specify the layout of text characters.</layout-grid>
+			<layout-grid-char type="text">Sets or retrieves the size of the character grid used for rendering the text content of an element.</layout-grid-char>
+			<layout-grid-line type="text">Sets or retrieves the gridline value used for rendering the text content of an element.</layout-grid-line>
+			<layout-grid-mode type="list" list="both,none,line,char">Sets or retrieves whether the text layout grid uses two dimensions.</layout-grid-mode>
+			<layout-grid-type type="list">Sets or retrieves the type of grid used for rendering the text content of an element.</layout-grid-type>
+			<left type="pos">Sets or retrieves the position of the object relative to the left edge of the next positioned object in the document hierarchy.</left>
+			<letter-spacing type="pos">Sets or retrieves the amount of additional space between letters in the object.</letter-spacing>
+			<line-break type="list">Sets or retrieves line-breaking rules for Japanese text.</line-break>
+			<line-height type="pos">Sets or retrieves the distance between lines in the object.</line-height>
+			<margin type="text">Sets or retrieves the width of the top, right, bottom, and left margins of the object.</margin>
+			<margin-bottom type="pos">Sets or retrieves the height of the bottom margin of the object.</margin-bottom>
+			<margin-left type="pos">Sets or retrieves the width of the left margin of the object.</margin-left>
+			<margin-right type="pos">Sets or retrieves the width of the right margin of the object.</margin-right>
+			<margin-top type="pos">Sets or retrieves the height of the top margin of the object.</margin-top>
+            <max-height type="pos">Sets or retrieves the maximum height of the object.</max-height>
+            <max-width type="pos">Sets or retrieves the maximum width of the object.</max-width>
+            <min-height type="pos">Sets or retrieves the minimum height of the object.</min-height>
+            <min-width type="pos">Sets or retrieves the minimum width of the object.</min-width>
+			<opacity type="text">Sets or retrieves the opacity of the object.</opacity>
+			<overflow type="text">Sets or retrieves a value indicating how to manage the content of the object when the content exceeds the height or width of the object.</overflow>
+			<overflow-x type="list" list="visible,scroll,hidden,auto">Sets or retrieves how to manage the content of the object when the content exceeds the width of the object.</overflow-x>
+			<overflow-y type="text" list="visible,scroll,hidden,auto">Sets or retrieves how to manage the content of the object when the content exceeds the height of the object.</overflow-y>
+			<padding type="text">Sets or retrieves the amount of space to insert between the object and its margin or, if there is a border, between the object and its border.</padding>
+			<padding-bottom type="pos">Sets or retrieves the amount of space to insert between the bottom border of the object and the content.</padding-bottom>
+			<padding-left type="pos">Sets or retrieves the amount of space to insert between the left border of the object and the content.</padding-left>
+			<padding-right type="pos">Sets or retrieves the amount of space to insert between the right border of the object and the content.</padding-right>
+			<padding-top type="pos">Sets or retrieves the amount of space to insert between the top border of the object and the content.</padding-top>
+			<page-break-after type="list">Sets or retrieves a value indicating whether a page break occurs after the object.</page-break-after>
+			<page-break-before type="list">Sets or retrieves a string indicating whether a page break occurs before the object.</page-break-before>
+			<position type="text">Sets or retrieves the type of positioning used for the object.</position>
+			<right type="pos">Sets or retrieves the position of the object relative to the right edge of the next positioned object in the document hierarchy.</right>
+			<scrollbar-3dlight-color type="color">Sets or retrieves the color of the top and left edges of the scroll box and scroll arrows of a scroll bar.</scrollbar-3dlight-color>
+			<scrollbar-arrow-color type="color">Sets or retrieves the color of the arrow elements of a scroll arrow.</scrollbar-arrow-color>
+			<scrollbar-base-color type="color">Sets or retrieves the color of the main elements of a scroll bar, which include the scroll box, track, and scroll arrows.</scrollbar-base-color>
+			<scrollbar-darkshadow-color type="color">Sets or retrieves the color of the gutter of a scroll bar.</scrollbar-darkshadow-color>
+			<scrollbar-face-color type="color">Sets or retrieves the color of the scroll box and scroll arrows of a scroll bar.</scrollbar-face-color>
+			<scrollbar-highlight-color type="color">Sets or retrieves the color of the top and left edges of the scroll box and scroll arrows of a scroll bar.</scrollbar-highlight-color>
+			<scrollbar-shadow-color type="color">Sets or retrieves the color of the bottom and right edges of the scroll box and scroll arrows of a scroll bar.</scrollbar-shadow-color>
+			<scrollbar-track-color type="color">Sets or retrieves the color of the track element of a scroll bar.</scrollbar-track-color>
+			<text-align type="list" list="left,right,center,justify">Sets or retrieves whether the text in the object is left-aligned, right-aligned, centered, or justified.</text-align>
+			<text-align-last type="list">Sets or retrieves how to align the last line or only line of text in the object.</text-align-last>
+			<text-autospace type="list" list="none,ideograph-alpha,ideograph-numeric,ideograph-parenthesis,ideograph-space">Sets or retrieves the autospacing and narrow space width adjustment of text.</text-autospace>
+			<text-decoration type="list" list="none,underline,overline,line-through,blink">Sets or retrieves a value that indicates whether the text in the object has blink, line-through, overline, or underline decorations.</text-decoration>
+			<text-indent type="pos">Sets or retrieves the indentation of the first line of text in the object.</text-indent>
+			<text-justify type="list">Sets or retrieves the type of alignment used to justify text in the object.</text-justify>
+			<text-kashida-space type="pos">Sets or retrieves the ratio of kashida expansion to white space expansion when justifying lines of text in the object.</text-kashida-space>
+			<text-overflow type="list" list="ellipsis,clip">Sets or retrieves a value that indicates whether to render ellipses(...) to indicate text overflow.</text-overflow>
+			<text-transform type="list" list="none,capitalize,uppercase,lowercase">Sets or retrieves the rendering of the text in the object.</text-transform>
+			<text-underline-position type="list" list="above,below,auto,auto-pos">Sets or retrieves the position of the underline decoration that is set through the textDecoration property of the object.</text-underline-position>
+			<top type="pos">Sets or retrieves the position of the object relative to the top of the next positioned object in the document hierarchy.</top>
+			<unicode-bidi type="list" list="normal,embed,bidi-override">Sets or retrieves the level of embedding with respect to the bidirectional algorithm.</unicode-bidi>
+			<vertical-align type="list" list="auto, baseline, sub, super, top, middle, bottom, text-top, text-bottom">Sets or retrieves the vertical alignment of the object.</vertical-align>
+			<visibility type="list" list="inherit, visible, hidden">Sets or retrieves whether the content of the object is displayed.</visibility>
+			<white-space type="list" list="normal, nowrap, pre">Sets or retrieves a value that indicates whether lines are automatically broken inside the object.</white-space>
+			<width type="pos">Sets or retrieves the width of the object.</width>
+			<word-break type="list" list="normal, break-all, keep-all">Sets or retrieves line-breaking behavior within words, particularly where multiple languages appear in the object.</word-break>
+			<word-spacing type="text">Sets or retrieves the amount of additional space between words in the object.</word-spacing>
+			<word-wrap type="list" list="normal, break-word">Sets or retrieves whether to break words when the content exceeds the boundaries of its container.</word-wrap>
+			<writing-mode type="list" list="lr-tb, tb-rl">Sets or retrieves the direction and flow of the content in the object.</writing-mode>
+			<z-index type="text">Sets or retrieves the stacking order of positioned objects.</z-index>
+			<zoom type="text">Sets or retrieves the magnification scale of the object.</zoom>
+		</styles>
+		<events>
+			<onabort>Fires when the user aborts the download of an image.</onabort>
+			<onactivate>Fires when the object is set as the active element.</onactivate>
+			<onafterupdate>Fires on a databound object after successfully updating the associated data in the data source object.</onafterupdate>
+			<onbeforeactivate>Fires immediately before the object is set as the active element.</onbeforeactivate>
+			<onbeforecopy>Fires on the source object before the selection is copied to the system clipboard.</onbeforecopy>
+			<onbeforecut>Fires on the source object before the selection is deleted from the document.</onbeforecut>
+			<onbeforedeactivate>Fires immediately before the activeElement is changed from the current object to another object in the parent document.</onbeforedeactivate>
+			<onbeforeeditfocus>Fires before an object contained in an editable element enters a UI-activated state or when an editable container object is control selected.</onbeforeeditfocus>
+			<onbeforepaste>Fires on the target object before the selection is pasted from the system clipboard to the document.</onbeforepaste>
+			<onbeforeupdate>Fires on a databound object before updating the associated data in the data source object.</onbeforeupdate>
+			<onblur>Fires when the object loses the input focus.</onblur>
+			<onchange>Fires when the contents of the object or selection have changed.</onchange>
+			<onclick>Fires when the user clicks the left mouse button on the object.</onclick>
+			<oncontextmenu>Fires when the user clicks the right mouse button in the client area, opening the context menu.</oncontextmenu>
+			<oncontrolselect>Fires when the user is about to make a control selection of the object.</oncontrolselect>
+			<oncopy>Fires on the source element when the user copies the object or selection, adding it to the system clipboard.</oncopy>
+			<oncut>Fires on the source element when the object or selection is removed from the document and added to the system clipboard.</oncut>
+			<ondblclick>Fires when the user double-clicks the object.</ondblclick>
+			<ondeactivate>Fires when the activeElement is changed from the current object to another object in the parent document.</ondeactivate>
+			<ondrag>Fires on the source object continuously during a drag operation.</ondrag>
+			<ondragend>Fires on the source object when the user releases the mouse at the close of a drag operation.</ondragend>
+			<ondragenter>Fires on the target element when the user drags the object to a valid drop target.</ondragenter>
+			<ondragleave>Fires on the target object when the user moves the mouse out of a valid drop target during a drag operation.</ondragleave>
+			<ondragover>Fires on the target element continuously while the user drags the object over a valid drop target.</ondragover>
+			<ondragstart>Fires on the source object when the user starts to drag a text selection or selected object.</ondragstart>
+			<ondrop>Fires on the target object when the mouse button is released during a drag-and-drop operation.</ondrop>
+			<onerror>Fires when an error occurs during object loading.</onerror>
+			<onerrorupdate>Fires on a databound object when an error occurs while updating the associated data in the data source object.</onerrorupdate>
+			<onfilterchange>Fires when a visual filter changes state or completes a transition.</onfilterchange>
+			<onfocus>Fires when the object receives focus.</onfocus>
+			<onfocusin>Fires for an element just prior to setting focus on that element.</onfocusin>
+			<onfocusout>Fires for the current element with focus immediately after moving focus to another element.</onfocusout>
+			<onhelp>Fires when the user presses the F1 key while the browser is the active window.</onhelp>
+			<onkeydown>Fires when the user presses a key.</onkeydown>
+			<onkeypress>Fires when the user presses an alphanumeric key.</onkeypress>
+			<onkeyup>Fires when the user releases a key.</onkeyup>
+			<onlayoutcomplete>Fires when the print or print preview layout process finishes filling the current LayoutRect object with content from the source document.</onlayoutcomplete>
+			<onload>Fires immediately after the browser loads the object.</onload>
+			<onlosecapture>Fires when the object loses the mouse capture.</onlosecapture>
+			<onmousedown>Fires when the user clicks the object with either mouse button.</onmousedown>
+			<onmouseenter>Fires when the user moves the mouse pointer into the object.</onmouseenter>
+			<onmouseleave>Fires when the user moves the mouse pointer outside the boundaries of the object.</onmouseleave>
+			<onmousemove>Fires when the user moves the mouse over the object.</onmousemove>
+			<onmouseout>Fires when the user moves the mouse pointer outside the boundaries of the object.</onmouseout>
+			<onmouseover>Fires when the user moves the mouse pointer into the object.</onmouseover>
+			<onmouseup>Fires when the user releases a mouse button while the mouse is over the object.</onmouseup>
+			<onmousewheel>Fires when the wheel button is rotated.</onmousewheel>
+			<onmove>Fires when the object moves.</onmove>
+			<onmoveend>Fires when the object stops moving.</onmoveend>
+			<onmovestart>Fires when the object starts to move.</onmovestart>
+			<onpaste>Fires on the target object when the user pastes data, transferring the data from the system clipboard to the document.</onpaste>
+			<onpropertychange>Fires when a property changes on the object.</onpropertychange>
+			<onreadystatechange>Fires when the state of the object has changed.</onreadystatechange>
+			<onresize>Fires when the size of the object is about to change.</onresize>
+			<onresizeend>Fires when the user finishes changing the dimensions of the object in a control selection.</onresizeend>
+			<onresizestart>Fires when the user begins to change the dimensions of the object in a control selection.</onresizestart>
+			<onscroll>Fires when the user repositions the scroll box in the scroll bar on the object.</onscroll>
+			<onselect>Fires when the current selection changes.</onselect>
+			<onselectstart>Fires when the object is being selected.</onselectstart>
+			<ontimeerror>Fires whenever a time-specific error occurs, usually as a result of setting a property to an invalid value.</ontimeerror>
+		</events>
+		<params>
+            <hidden-if type="hidden-if">Hidden If</hidden-if>
+            <canvas-pen-size type="canvas-pen-size">Pen Size</canvas-pen-size>
+            <canvas-pen-color type="color">Pen Color</canvas-pen-color>
+            <canvas-background-color type="color">Background Color</canvas-background-color>
+			<required type="bool">Required</required>
+			<group-required type="bool">Group Required</group-required>
+			<validation type="validation-list">Validation List</validation>
+			<equal-to type="equal-to">Equal To</equal-to>
+			<select-list type="select-list">List of values</select-list>
+			<inner-content type="inner-content">Inner Content</inner-content>
+			<inner-html type="inner-html">Inner HTML</inner-html>
+			<rich-text type="rich-text">Rich Text</rich-text>
+			<captcha-type type="captcha-type">Captcha</captcha-type>
+			<captcha-length type="captcha-length">Captcha Length</captcha-length>
+			<captcha-symbols type="captcha-symbols">Captcha Symbols</captcha-symbols>
+			<captcha-field type="captcha-field">Captcha Field</captcha-field>
+			<on-click-action type="on-click-action">On Click Action</on-click-action>
+			<custom-js-line type="custom-js-line">Custom JS Line</custom-js-line>
+			<after-submit type="after-submit">Action after Submit</after-submit>
+			<save-data type="save-data">Save Data</save-data>
+			<disable-validation type="disable-validation">Validate Data</disable-validation>
+			<selected-page type="selected-page">Selected Page</selected-page>
+			<redirect-url type="redirect-url">Redirect URL</redirect-url>
+			<date-input-field type="date-input-field">Date field associated with Calendar</date-input-field>
+			<date-format type="date-format">Date format</date-format>
+			<email-to-admin type="email-to-admin">Email To Admin</email-to-admin>
+			<admin-email type="admin-email">Admin Email</admin-email>
+			<admin-email-template type="admin-email-template">Admin Email Template</admin-email-template>
+			<email-to-user type="email-to-user">Email To User</email-to-user>
+			<user-email-addr-field type="user-email-addr-field">User Email Address Field</user-email-addr-field>
+			<user-email-template type="user-email-template">User Email Template</user-email-template>
+            <pdf-page-size type="pdf-page-size">PDF Page Size</pdf-page-size>
+            <pdf-orientation type="pdf-orientation">PDF Page Size</pdf-orientation>
+		</params>
+	</clarification>
+</msdn>

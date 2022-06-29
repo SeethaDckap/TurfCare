@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var Magento\Customer\Block\Account\Customer $block */
+?>
+
+<li class="customer-welcome sub_links">
+    <span class="customer-name"
+          role="link"
+          tabindex="0"
+          data-mage-init='{"dropdown":{}}'
+          data-toggle="dropdown"
+          data-trigger-keypress-button="true">
+        <button type="button"
+                class="action switch"
+                tabindex="-1"
+                data-action="customer-menu-toggle">
+            <span><?= $block->escapeHtml(__('Change')) ?></span>
+        </button>
+    </span>
+    <?php if($block->getChildHtml()):?>
+        <div class="customer-menu" data-target="dropdown">
+            <?= $block->getChildHtml() ?>
+        </div>
+    <?php endif; ?>
+</li>

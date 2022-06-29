@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Magedelight_Orderbysku::orderbysku_root"
+             title="Quick Order"
+             module="Magedelight_Orderbysku"
+             sortOrder="50"
+             resource="Magedelight_Orderbysku::root"
+             toolTip="magedelight_base" />
+
+        <add id="Magedelight_Orderbysku::orderbysku_root_commonlyvisible"
+             title="Quick Order"
+             module="Magedelight_Orderbysku"
+             sortOrder="50"
+             parent="Magedelight_Base::md_modules"
+             resource="Magedelight_Orderbysku::root" />
+
+        <!-- GST Configuration -->
+        <add id="Magedelight_Orderbysku::settings"
+             title="Configuration"
+             translate="title"
+             module="Magedelight_Orderbysku"
+             sortOrder="180"
+             parent="Magedelight_Orderbysku::orderbysku_root"
+             action="adminhtml/system_config/edit/section/orderbysku"
+             resource="Magedelight_Orderbysku::settings"/>
+
+        <add id="Magedelight_Orderbysku::useful_links"
+             title="Useful Links"
+             module="Magedelight_Orderbysku"
+             sortOrder="999"
+             parent="Magedelight_Orderbysku::orderbysku_root"
+             resource="Magedelight_Orderbysku::root" />
+        <add id="Magedelight_Orderbysku::documentation"
+             title="Documentation"
+             module="Magedelight_Orderbysku"
+             sortOrder="10"
+             target="_blank"
+             parent="Magedelight_Orderbysku::useful_links"
+             resource="Magedelight_Orderbysku::root" />
+    </menu>
+</config>

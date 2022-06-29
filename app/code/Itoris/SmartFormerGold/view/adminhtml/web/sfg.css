@@ -1,0 +1,161 @@
+#loadingImage {
+	position:absolute;
+	z-index:100000;
+	width:120px;
+	height:80px;
+	left:45%;
+	top:35%;
+}
+
+#sgf_mask {
+	position:fixed;
+	left:0px;
+	top:0px;
+    right:0px;
+    bottom:0px;
+	background-color:#000000;
+	z-index:99995;
+}
+
+#over_mask, #over_mask2, #over_mask3, #over_mask4, #over_mask5 {
+	left:5%;
+	top:5%;
+	width:90%;
+	height:85%;
+	position:absolute;
+	z-index:99999;
+	background:#ffffff;
+    box-sizing:initial;
+    border-radius:5px;
+    border:5px solid #ddd;
+}
+#over_mask2 {min-width:840px;}
+
+#over_maskClose {
+	float:right;
+	cursor:pointer;
+    margin: -9px -12px -10px 0;
+}
+
+#sfg_editarea {
+	border:1px solid #555555;
+	width:100%;
+	height:100%;
+	margin:0;
+}
+
+#sfg_tinymce {
+	border:1px solid #555555;
+	width:100%;
+	height:100%;
+	margin:0;
+}
+
+#templateLister {
+	width:99%;
+	height:100%;
+	border:1px solid #888888;
+	padding:2px;
+}
+
+.templateName0 {
+	background-color:#ffffff;
+	cursor:pointer;
+	height:16px;
+}
+
+.templateName1 {
+	background-color:#f5f5f5;
+	cursor:pointer;
+	height:16px;
+}
+
+.templateNameSelected {
+	background-color:#dddddd;
+	cursor:default;
+	border:1px solid #888888;
+	height:16px;
+}
+
+.templateName0:hover, .templateName1:hover {
+	background-color:#eeeeee;
+}
+
+#alert_div {
+    position: absolute;
+    border: 1px solid #CCCCCC;
+    background-color: #F5F5F5;
+    text-align: center;
+    color: #ff0000;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 10px;
+    z-index:100001;
+}
+
+#over_mask input, #over_mask select, #over_mask option, #over_mask textarea, #over_mask div, #over_mask span,
+#over_mask2 input, #over_mask2 select, #over_mask2 option, #over_mask2 textarea, #over_mask2 div, #over_mask2 span,
+#over_mask3 input, #over_mask3 select, #over_mask3 option, #over_mask3 textarea, #over_mask3 div, #over_mask3 span,
+#over_mask4 input, #over_mask4 select, #over_mask4 option, #over_mask4 textarea, #over_mask4 div, #over_mask4 span,
+#over_mask5 input, #over_mask5 select, #over_mask5 option, #over_mask5 textarea, #over_mask5 div, #over_mask5 span,
+#over_mask6 input, #over_mask6 select, #over_mask6 option, #over_mask6 textarea, #over_mask6 div, #over_mask6 span,
+#presetList input, #presetList select, #presetList option, #presetList textarea, #presetList div, #presetList span
+{
+	margin:0;
+	font-family:Arial;
+	font-size:12px;
+	line-height:18px;
+}
+
+#over_mask select, #over_mask2 select, #over_mask3 select, #over_mask4 select, #over_mask5 select, #over_mask6 select, #presetList select {
+	height:18px;
+	width:auto;
+}
+
+#over_mask input, #over_mask2 input, #over_mask3 input, #over_mask4 input, #over_mask5 input, #over_mask6 input, #presetList input {
+	padding:3px;
+	width:auto;
+}
+
+#over_mask_header {
+	background-color:#F5F5F5;
+	border-bottom:1px solid #ccc;
+	margin:0;
+    padding:5px 10px;
+}
+
+#over_mask_header span {
+	text-align:left;
+	font-family:Arial;
+	font-size:14px;
+	color:#333;
+	font-weight:bold;
+	line-height:24px;
+    text-transform: uppercase;
+}
+
+.popup-footer {
+    height:48px;
+    border-top:1px solid #ccc;
+    background-color:#F5F5F5;
+}
+
+.popup-footer  button {
+    margin:6px 10px;
+}
+
+#sfg_inner_container > input[type=text], #sfg_inner_container > input[type=password], #sfg_inner_container > textarea {}
+#sfg_inner_container > input[type=checkbox], #sfg_inner_container > input[type=radio] {margin-top:8px;}
+#sfg_inner_container > span, #sfg_inner_container > div {line-height:18px; padding-top:2px;}
+#sfg_inner_container > select {}
+#sfg_inner_container > img {max-width:none}
+
+#container input[type=checkbox], #container input[type=radio] {border:none;}
+
+#sfg_inner_container input[type=button], #sfg_inner_container input[type=submit], #sfg_inner_container input[type=reset],
+#over_mask input[type=button], #over_mask2 input[type=button], #over_mask3 input[type=button], #over_mask4 input[type=button],
+#over_mask5 input[type=button], #over_mask6 input[type=button], #presetList input[type=button] {
+	height:auto;
+	width:auto;
+	padding:0;
+}

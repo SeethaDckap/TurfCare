@@ -1,0 +1,16 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="checkout-billing-address">
+    <render args="detailsTemplate"/>
+    <fieldset class="fieldset" data-bind="visible: !isAddressDetailsVisible()">
+        <each args="getRegion('billing-address-list')" render="" />
+        <div data-bind="fadeVisible: isAddressFormVisible">
+            <render args="formTemplate"/>
+        </div>
+        <render args="actionsTemplate"/>
+    </fieldset>
+</div>

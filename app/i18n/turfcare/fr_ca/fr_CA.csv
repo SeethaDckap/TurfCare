@@ -1,0 +1,45 @@
+"Only %1 left","%1 Disponible"
+"Purchase Order Number","Purchase Order/Reference"
+"Purchase Order Number: %1","Purchase Order/Reference: %1"
+"Purchase order number is a required field.","Purchase Order/Reference is a required field."
+Sign out,Déconnexion
+Customer Login,Connexion client
+Registered Customers,Clients inscrits
+"If you have an account, sign in with your email address.","Si vous avez un compte, connectez-vous au moyen de votre adresse courriel."
+Email,Courriel
+Forgot your password?,Vous avez oublié votre mot de passe?
+*Required fields,*Champs obligatoires
+Request an Account,Demander un compte
+Account Information,Renseignements sur le compte
+Contact Information,Coordonnées
+Change Email,Modifier d'adresse courriel
+"If you created this account using Amazon Pay, you might not know your site password. Request a password to change your account password.","Si vous avez créé ce compte au moyen d'Amazon Pay, vous ne connaissez peut-être pas le mot de passede votre site. Demandez un mot de passe pour changer le mot de passe de votre compte."
+Edit Account Information,Modifier les renseignements sur le compte
+Additional Address Entries,Autres entrées d'adresses
+Continue Shopping,Continuer à magasiner
+View and Edit Cart,Afficher et modifier le panier d'achat
+Item#,No d'article
+"We don't have as many quantity as you requested, but we'll back order the remaining ""%1"".","Nous n'avons pas la quantité que vous avez demandée, mais nous allons commander les ""%1"" manquants."
+Delivery,Livraison
+Customer Pickup,Ramassage par le client
+Purchase Order/Reference ,Bon de commande/référence
+Alphabetically (A to Z),Par ordre alphabétique (A-Z)
+Alphabetically (Z to A),Par ordre alphabétique (Z-A)
+SKU#:,No SKU :
+SKU#,No SKU
+Old SKU#,Ancien no SKU
+Go to Product,Aller au produit
+Please contact our Customer Service department for further details.,"Pour plus de détails, veuillez communiquer avec notre service à  la clientèle."
+"%1 is the only product matching your '%2' search.","""%1"" est le seul produit correspondant à votre recherche de ""%2""."
+Qty Available,Qté disponible
+List Price,List prix
+Details,Détails
+Log in to see pricing,Connectez-vous pour voir les prix
+The shipping method is missing. Select the shipping method and try again.,La méthode d'expédition est manquante. Sélectionnez la méthode d'expédition et réessayez.
+Delivery - Method,Méthode de livraison
+Thank you for your purchase,Merci pour votre commande.
+Items Ordered,Les articles commandés
+Please note order total does not include freight. Regular shipping charges will be applied at the time of shipping and be reflected on the invoice.,
+Your Cost,votre coût
+"No exact results found for: <b>'%1'</b>. The displayed items are the closest matches.","Aucun résultat exact trouvé pour : <b>""%1""</b>. Les éléments affichés sont les correspondances les plus proches."
+"The following skus have errors. Please see below for details",“Les skus suivants comportent des erreurs. Veuillez voir ci-dessous pour plus de détails”

@@ -1,0 +1,37 @@
+/*******************************************************************/
+/* SmartFormer Gold (c) Form PHP controller                                                    */
+/* Product of IToris (c) 2017 http://www.itoris.com                                            */
+/*******************************************************************/
+
+//EXAMPLE OF AJAX RESPONSE
+if ($this->getRequest()->getParam("sfg_ajax")) {
+	$post = $this->getRequest()->getPost()->toArray();
+	echo "You posted the following data:\n";
+	print_r($post);
+	exit;
+}
+
+//EXPLANATION: $this is the block containg the form, the form model can be accessed as $this->getForm();
+$form = $this->getForm();
+
+//EXPLANATION: this method merges data in session and $this->getRequest()->getPost() and returns all values as array
+$allValues = $this->getPostedValues();
+
+//EXPLANATION: this method validates the form data, returns TRUE or FALSE
+$isValid = $this->validate();
+
+//EXPLANATION: if form is valid this method will perform all actions after submit: saves data to database, navigates between pages, emails, etc.
+$this->dispatch();
+
+//EXAMPLE: howto populate name and email from session if customer is logged in
+$customerSession = $this->_objectManager->get('Magento\Customer\Model\Session');
+if ($customerSession->isLoggedIn()) {
+	if (!$form->getValue('name')) $form->setValue('name', $customerSession->getCustomer()->getName());
+	if (!$form->getValue('email')) $form->setValue('email', $customerSession->getCustomer()->getEmail());
+}
+
+//EXPLANATION: this method renders the current form page and returns HTML
+$this->page_html = $this->renderForm();
+
+//EXPLANATION: output into the block
+echo $this->page_html;

@@ -1,0 +1,9 @@
+<?php
+$customerDivision = $this->helper('LeanSwift\Turfcare\Helper\Data')->getErpDivision();
+if($customerDivision) {
+        echo $this->getLayout()
+            ->createBlock('Magento\Cms\Block\Block')
+            ->setBlockId('shipping-information')
+            ->toHtml();
+}
+?>

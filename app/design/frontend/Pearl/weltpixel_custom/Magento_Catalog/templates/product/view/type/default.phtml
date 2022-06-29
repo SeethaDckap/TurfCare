@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /* @var $block \Magento\Catalog\Block\Product\View\AbstractView */?>
+<?php $_product = $block->getProduct() ?>
+<?php /* TC-106 changes */ ?>
+<?php $_helperData = $this->helper('LeanSwift\Turfcare\Helper\Data');?>
+<?php $stockInfo = $_helperData->getCartItemData($_product);?>
+<?php /* TC-106 changes */ ?>
+
+<?php /* TC-106 changes */ ?>
+<?php if(isset($stockInfo['qty'])):
+    $availableQty = ($stockInfo['qty'])?$stockInfo['qty']:0;
+    if($availableQty < 0){
+        $availableQty = 0;
+    }
+    ?>
+    <div class="item-info-container">
+        <div class="product-item-avaiableqty"><span class="item-qty-label"><?= $block->escapeHtml(__('Qty Available : ')) ?></span><span class="qty-value"><?= $block->escapeHtml($availableQty) ?> </span></div>
+    </div>
+<?php endif;?>
+<?php /* TC-106 changes */ ?>

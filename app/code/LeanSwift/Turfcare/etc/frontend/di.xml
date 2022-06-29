@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="WeltPixel\NavigationLinks\Plugin\Block\Topmenu" type="LeanSwift\Turfcare\Plugin\Block\Topmenu" />
+    <preference for="WeltPixel\NavigationLinks\Block\Html\Topmenu" type="LeanSwift\Turfcare\Block\Html\Topmenu" />
+    <preference for="WeltPixel\LayeredNavigation\Model\Layer\Filter\Category" type="LeanSwift\Turfcare\Model\Layer\Filter\Category" />
+    <preference for="WeltPixel\LayeredNavigation\Model\Layer\Filter\Attribute" type="LeanSwift\Turfcare\Model\Layer\Filter\Attribute" />
+    <preference for="WeltPixel\AjaxInfiniteScroll\Block\Product\ListProduct" type="LeanSwift\Turfcare\Block\Product\ListProduct" />
+<!--    <preference for="WeltPixel\SearchAutoComplete\Model\Autocomplete\SearchDataProvider" type="LeanSwift\Turfcare\Model\Autocomplete\SearchDataProvider" />-->
+    <preference for="Magento\Sales\Block\Order\Totals" type="LeanSwift\Turfcare\Block\Order\Totals" />
+    <preference for="Magento\CatalogSearch\Model\Adapter\Mysql\Aggregation\DataProvider\SelectBuilderForAttribute" type="LeanSwift\Turfcare\Model\Adapter\Mysql\Aggregation\DataProvider\SelectBuilderForAttribute"/>
+    <virtualType name="Magento\CatalogSearch\Block\SearchResult\ListProduct" type="LeanSwift\Turfcare\Block\Product\ListProduct">
+        <arguments>
+            <argument name="catalogLayer" xsi:type="object">Magento\Catalog\Model\Layer\Search</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\Customer\Controller\Account\CreatePost" type="LeanSwift\Turfcare\Controller\Account\CreatePost" />
+<!--    <preference for="Magento\Catalog\Model\ProductRepository" type="LeanSwift\Turfcare\Model\ProductRepository" />-->
+    <preference for="Magento\Checkout\CustomerData\DefaultItem" type="LeanSwift\Turfcare\CustomerData\DefaultItem"/>
+    <type name="Magento\Customer\CustomerData\Customer">
+        <plugin name="cache_customer_info" sortOrder="1" type="LeanSwift\Turfcare\Plugin\CustomerData\Customer"/>
+    </type>
+    <preference for="Magedelight\Orderbysku\Model\Search\Product" type="LeanSwift\Turfcare\Model\Search\Product"/>
+    <preference for="Magedelight\Orderbysku\Controller\Customer\Skudata" type="LeanSwift\Turfcare\Controller\Customer\Skudata"/>
+    <preference for="Magedelight\Orderbysku\Controller\Customer\Sampledata" type="LeanSwift\Turfcare\Controller\Customer\Sampledata"/>
+    <preference for="Magedelight\Orderbysku\Controller\Index\Index" type="LeanSwift\Turfcare\Controller\Index\Orderbysku"/>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<helpers>
+	<helper controller="move" />
+	<helper controller="stuck" />
+	<helper controller="grid" />
+	<helper controller="hint" />
+	<helper controller="color" />
+	<helper controller="image" />
+	<helper controller="list" />
+	<helper controller="validation" />
+	<helper controller="db" />
+	<helper controller="save" />
+</helpers>

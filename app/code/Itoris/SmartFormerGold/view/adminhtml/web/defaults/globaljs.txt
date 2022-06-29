@@ -1,0 +1,25 @@
+/*******************************************************************/
+// SmartFormer Gold (c) Form JS controller
+// Product of IToris (c) 2017 http://www.itoris.com
+/*******************************************************************/
+
+sfgObject.callback.afterLoad = function(){
+	//runs after the form has been fully initialized
+	//ajaxExample();
+}
+
+sfgObject.callback.beforeSubmit = function(btn){
+	return true; //return false to stop submission in case custom validation
+}
+
+function ajaxExample() {
+	//Example of AJAX call to the form controller
+	jQuery.post(sfgObject.config.ajax_url,
+		{
+			myvar: "Test1",
+			myvar2: "Test2"
+		}
+	).done(function( data ) {
+		alert('Server response: ' + data);
+	});
+}

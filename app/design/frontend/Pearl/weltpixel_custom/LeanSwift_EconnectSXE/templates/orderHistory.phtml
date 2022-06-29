@@ -1,0 +1,337 @@
+<?php
+/**
+ * LeanSwift eConnectSXE Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the LeanSwift eConnectSXE Extension License
+ * that is bundled with this package in the file LICENSE.txt located in the Connector Server.
+ *
+ * DISCLAIMER
+ *
+ * This extension is licensed and distributed by LeanSwift. Do not edit or add to this file
+ * if you wish to upgrade Extension and Connector to newer versions in the future.
+ * If you wish to customize Extension for your needs please contact LeanSwift for more
+ * information. You may not reverse engineer, decompile,
+ * or disassemble LeanSwift eConnectSXE Extension (All Versions), except and only to the extent that
+ * such activity is expressly permitted by applicable law not withstanding this limitation.
+ *
+ * @category  LeanSwift
+ * @package   LeanSwift_EconnectSXE
+ * @copyright Copyright (c) 2020 LeanSwift Inc. (http://www.leanswift.com)
+ * @license   https://www.leanswift.com/end-user-licensing-agreement/
+ */
+
+$ERPorderHistory = $block->getCollection();
+
+$maxQueryLength = 128;
+$filterClass = $block->getFilterClass();
+?>
+
+
+<div class="magento_order_items">
+    <?php
+    $magentoOrderHistory = $block->getMagentoOrderCollection();
+    if ($magentoOrderHistory->getSize()) : ?>
+        <table class="data table table-order-items history" id="magento-orders-table">
+            <caption class="table-caption">
+                <?= $block->escapeHtml(__('Web Orders')) ?>
+            </caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col order"><?= $block->escapeHtml(__('Web Order #')) ?></th>
+                <th scope="col" class="col date"><?= $block->escapeHtml(__('Date')) ?></th>
+                <th scope="col" class="col ship_to"><?= $block->escapeHtml(__('Ship To')) ?></th>
+                <th scope="col" class="col order_total"><?= $block->escapeHtml(__('Order Total')) ?></th>
+                <th scope="col" class="col order_status"><?= $block->escapeHtml(__('Order Status')) ?></th>
+                <th scope="col" class="col sxe_order"><?= $block->escapeHtml(__('Order #')) ?></th>
+                <th scope="col" class="col order_link">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($magentoOrderHistory as $order) :
+                $orderId = $order->getEntityId();
+                ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('Web Order #')) ?>"
+                        class="col order"><?= $block->escapeHtml(__($order->getRealOrderId())) ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Date')) ?>"
+                        class="col date"><?= $block->escapeHtml(__($block->fmtDate($order->getCreatedAt()))) ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Ship To')) ?>"
+                        class="col ship_to"><?= $order->getShippingAddress() ? $block->escapeHtml($order->getShippingAddress()->getName()) : $block->escapeHtml(__('&nbsp;')) ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Order Total')) ?>"
+                        class="col order_total"><?= /* @noEscape */$order->formatPrice($order->getGrandTotal()); ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Order Status')) ?>"
+                        class="col order_status"><?= $block->escapeHtml(__($order->getStatusLabel())) ?></td>
+                    <?php
+                    if(!empty($order->getExtOrderId())) : ?>
+                    <td data-th="<?= $block->escapeHtml(__('Order #')) ?>"
+                        class="col sxe_order"><?= $block->escapeHtml(__($order->getExtOrderId())) ?></td>
+                    <?php else : ?>
+                    <td data-th="<?= $block->escapeHtml(__('Order #')) ?>"
+                        class="col sxe_order"><?= $block->escapeHtml(__("N/A")) ?></td>
+                    <?php endif ?>
+                    <td data-th="<?= $block->escapeHtml(__('order Link')) ?>" class="col a-center order_link">
+                        <span class="nobr"><a
+                                    href="<?= $block->escapeHtml(__($block->getOrderViewUrl($orderId))) ?>"><?= $block->escapeHtml(__('View Order')) ?></a></span>
+                        <?php if ($block->canReorder($orderId)) : ?>
+                            <span class="separator">|</span> <a href="#"
+                                                                data-post='<?= $block->escapeHtml($block->getPostHelper()->getPostData($block->getReorderUrl($orderId)))
+                                                                ?>'
+                                                                class="link-reorder"><?= $block->escapeHtml(__('Reorder')) ?></a>
+                        <?php endif ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else : ?>
+        <div class="message info empty">
+    <span>
+        <?= $block->escapeHtml(__('You have placed no orders')); ?>
+    </span>
+        </div>
+    <?php endif ?>
+</div>
+
+<div class="ERP_order_items" style="display: none;">
+    <p><?= $block->escapeHtml(__('Orders may take up to 24 hours to appear here')); ?><a
+                href="<?= $block->escapeHtml(__($block->updateHistoryUrl())) ?>"><span><?= $block->escapeHtml(__('(Load More)')); ?></span></a>
+    </p>
+
+    <form class="form search advanced orderhistory-form" method="POST" id="form-validate">
+        <h2><a class="filter-toogle"><span
+                        class="visibilty"><?= $block->escapeHtml(__($filterClass['symbol'])) ?></span><?= $block->escapeHtml(__('Filter')) ?>
+            </a></h2>
+        <fieldset class="fieldset invoice-filters"
+                  style="<?= $block->escapeHtml(__($filterClass['filters'])) ?>">
+            <div class="field <?= $block->escapeHtml(__('Web Order #')) ?>">
+                <label class="label" for="<?= $block->escapeHtml(__('Web Order #')) ?>">
+                    <span>
+                        <?= $block->escapeHtml(__('Web Order #')) ?>
+                    </span>
+                </label>
+
+                <div class="control">
+                    <input type="text" name="web_order" id="<?= $block->escapeHtml(__("Web Order #")) ?>"
+                           value="<?= $block->escapeHtml($block->getSearchValues('web_order')); ?>"
+                           title="<?= $block->escapeHtml(__("Web Order")) ?>"
+                           maxlength="<?= $block->escapeHtml(__($maxQueryLength)) ?>"
+                           class="input-text"/>
+                </div>
+            </div>
+            <div class="field <?= $block->escapeHtml(__('Customer PO#')) ?>">
+                <label class="label" for="<?= $block->escapeHtml(__('Customer PO#')) ?>">
+                    <span>
+                        <?= $block->escapeHtml(__('Customer PO#')) ?>
+                    </span>
+                </label>
+
+                <div class="control">
+                    <input type="text" name="customer_po_number" id="<?= $block->escapeHtml(__("Customer PO#")) ?>"
+                           value="<?= $block->escapeHtml($block->getSearchValues('customer_po_number')) ?>"
+                           title="<?= $block->escapeHtml(__("Customer PO")) ?>"
+                           maxlength="<?= $block->escapeHtml(__($maxQueryLength)) ?>"
+                           class="input-text"/>
+                </div>
+            </div>
+            <div class="field <?= $block->escapeHtml(__('ERP Order #')) ?>">
+                <label class="label" for="<?= $block->escapeHtml(__('ERP Order #')) ?>">
+                    <span>
+                        <?= $block->escapeHtml(__('ERP Order #')) ?>
+                    </span>
+                </label>
+
+                <div class="control">
+                    <input type="text" name="order_num" id="<?= $block->escapeHtml(__("ERP Order #")) ?>"
+                           value="<?= $block->escapeHtml($block->getSearchValues('order_num')) ?>"
+                           title="<?= $block->escapeHtml(__("ERP Order ")) ?>"
+                           maxlength="<?= $block->escapeHtml(__($maxQueryLength)) ?>"
+                           class="input-text"/>
+                </div>
+            </div>
+            <div class="field
+                <?= $block->escapeHtml(__('Order Date')) ?>">
+                <label class="label" for="
+                    <?= $block->escapeHtml(__('Order Date')) ?>">
+                    <span>
+                        <?= $block->escapeHtml(__('Order Date')) ?>
+                    </span>
+                </label>
+
+                <div class="range dates fields group group-2">
+                    <div class="field date no-label">
+                        <div class="control">
+                            <?= /* @noEscape */
+                            $block->getDateInput(
+                                'orderhistory-from',
+                                'Order Date',
+                                'orderhistory',
+                                $block->getSearchValues('orderhistory-from'),
+                                'from'
+                            ) ?>
+                        </div>
+                    </div>
+                    <div class="field date no-label">
+                        <div class="control">
+                            <?= /* @noEscape */
+                            $block->getDateInput(
+                                'orderhistory-to',
+                                '',
+                                'orderhistory',
+                                $block->getSearchValues('orderhistory-to'),
+                                'to'
+                            ) ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field <?= $block->escapeHtml(__('Status')) ?>">
+                <label class="label" for="<?= $block->escapeHtml(__('Status')) ?>">
+                    <span>
+                        <?= $block->escapeHtml(__('Status')) ?>
+                    </span>
+                </label>
+
+                <div class="control">
+                    <select name="status" title="<?= $block->escapeHtml(__('Status')) ?>" class="status select">
+                        <option value="" selected="selected"><?= $block->escapeHtml(__('--None--')); ?></option>
+                        <?php foreach ($block->getStatusGroup() as $value => $label) : ?>
+                            <option
+                                    value="<?= $block->escapeHtml(__($value)) ?>" <?= $block->escapeHtml(__(($block->getSearchValues('status') != '' && $block->getSearchValues('status') == $value) ? 'selected=selected' : '')) ?>><?= $block->escapeHtml(__($label)) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action search primary"
+                            title="<?= $block->escapeHtml(__('Search')) ?>">
+                       <span>
+                            <?= $block->escapeHtml(__('Search')) ?>
+                       </span>
+                    </button>
+                    <button type="button" class="action reset-values primary"
+                            title="<?= $block->escapeHtml(__('Reset Values')) ?>">
+                       <span>
+                            <?= $block->escapeHtml(__('Reset Values')) ?>
+                       </span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <?php if ($ERPorderHistory->getSize()) : ?>
+        <?= $block->getToolbarHtml() ?>
+        <table class="data table table-order-items history" id="my-order-table">
+            <caption class="table-caption">
+                <?= $block->escapeHtml(__('My Orders')) ?>
+            </caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col ERP_order_no"><?= $block->escapeHtml(__('ERP Order #')) ?></th>
+                <th scope="col" class="col customer_po_no"><?= $block->escapeHtml(__('Customer PO#')) ?></th>
+                <th scope="col" class="col order_number"><?= $block->escapeHtml(__('Web Order #')) ?></th>
+                <th scope="col" class="col order_date"><?= $block->escapeHtml(__('Order Date')) ?></th>
+                <th scope="col" class="col status"><?= $block->escapeHtml(__('Status')) ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($ERPorderHistory as $ERPorder) : ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('ERP Order #')) ?>" class="col ERP_order_no"><a
+                                href="<?= $block->escapeHtml(__($block->getErpOrderViewUrl(
+                                    $ERPorder->getOrderNumber(),
+                                    $ERPorder->getIncrementId()
+                                ))); ?>"><?= $block->escapeHtml(__($ERPorder->getOrderNumber())) ?></a>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Customer PO#')) ?>"
+                        class="col customer_po_number"><?= $block->escapeHtml(__(($ERPorder->getCustomerPoNumber()) ? ($ERPorder->getCustomerPoNumber()) : '')) ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Web Order #')) ?>"
+                        class="col order_number"><?= $block->escapeHtml(__(($ERPorder->getIncrementId()) ? ($ERPorder->getIncrementId()) : '')) ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Order Date')) ?>"
+                        class="col order_date"><?= $block->escapeHtml(__($block->fmtDate($ERPorder->getOrderDate()))) ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Status')) ?>"
+                        class="col status"><?= $block->escapeHtml(__($block->getOrderStatusLabel($ERPorder->getStatus()))) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?= $block->getToolbarHtml() ?>
+        <form action="<?= $block->escapeHtml(__($block->getExportCSV())) ?>" style="display:none;">
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action primary"
+                            title="<?= $block->escapeHtml(__('Export CSV')) ?>">
+                    <span>
+                        <?= $block->escapeHtml(__('Export CSV')) ?>
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    <?php else : ?>
+        <div class="message info empty">
+            <span>
+                <?= $block->escapeHtml(__('You have no ERP orders.')); ?>
+            </span>
+        </div>
+    <?php endif ?>
+    <div class="actions-toolbar">
+        <div class="secondary">
+            <a class="action back" href="<?= $block->escapeUrl($block->getBackUrl()) ?>">
+                <span><?php $block->escapeHtml(__('Back')) ?></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    require(["jquery"], function ($) {
+        $('.filter-toogle').on('click', function () {
+            if ($('.invoice-filters').is(':visible')) {
+                $('span.visibilty').html('+');
+            } else {
+                $('span.visibilty').html('-');
+
+            }
+            $('.invoice-filters').toggle('slow');
+        });
+
+        $('.reset-values').on('click', function () {
+            $('.orderhistory-form').find(':input').each(function () {
+                $(this).val('');
+            });
+            $('.status.select').prop('selectedIndex', 0);
+        });
+
+        $('.filter-toogle').on('click', function () {
+            $(this).css('cursor', 'pointer');
+        });
+
+        // Display Web Orders
+        var dispMagOrders = "<?= $block->escapeHtml($block->getRequest()->getParam('m')); ?>";
+
+        $('#ERP_order_button').on('click', function () {
+            $('.ERP_order_items').show();
+            $('.magento_order_items').hide();
+            $('h1.page-title >span').html("<?= $block->escapeHtml(__('ERP Orders'))?>");
+        });
+
+        $('#magento_order_button').on('click', function () {
+            $('.ERP_order_items').hide();
+            $('.magento_order_items').show();
+            $('h1.page-title >span').html("<?= $block->escapeHtml(__('Web Orders'))?>");
+        });
+
+        if (dispMagOrders == 'true' || dispMagOrders == "") {
+            $("#magento_order_button").trigger("click");
+        } else {
+            $("#ERP_order_button").trigger("click");
+        }
+
+    });
+
+</script>

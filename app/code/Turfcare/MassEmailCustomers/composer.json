@@ -1,0 +1,32 @@
+{
+    "name": "turfcare/module-mass-email-customers",
+    "description": "Turf Care customizations to Mass Email Customers Extension for Magento 2",
+    "keywords": ["Magento 2", "Mass Email", "Email Customers", "Mass Action", "Admin Order Grid", "Admin Customer Grid"],
+    "require": {
+        "magevision/module-mass-email-customers": "dev-master"
+    },
+    "type": "magento2-module",
+    "version": "2.3.3",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Turfcare\\MassEmailCustomers\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "LeanSwift Team",
+            "homepage": "https://www.leanswift.com",
+            "email": "info@leanswift.com"
+        }
+    ],
+    "support": {
+        "email": "support@leanswift.com"
+    }
+}

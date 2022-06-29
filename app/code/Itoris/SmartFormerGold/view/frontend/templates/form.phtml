@@ -1,0 +1,47 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_SMARTFORMER_GOLD
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+
+$errorMessages = $block->getErrorMessages();
+if (!empty($errorMessages)) echo '<div class="sfg-messages">'.$errorMessages.'</div>';
+?>
+<div id="sfg_fieldset<?php echo $block->getFormId() ?>" sfg-page="<?php echo $block->getPage() + 1; ?>" sfg-form-id="<?php echo $block->getFormId() ?>" class="sfg-form" style="position:relative; width:<?php echo $block->getPageWidth() ?>px; height:<?php echo $block->getPageHeight() ?>px">
+    <?php echo $block->getPageHtml() ?>
+</div>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $block->getViewFileUrl('Itoris_SmartFormerGold::css/sfg.css') ?>" />
+<style><?php echo $block->getForm()->getConfig()->globalcss ?></style>
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('Itoris_SmartFormerGold::js/sfg.js') ?>"></script>
+<script type="text/javascript">
+    sfgObject<?php echo $block->getFormId() ?> = new SFG({
+        form_id: <?php echo $block->getFormId() ?>,
+        autoresponsive: <?php echo (int)$block->getForm()->getConfig()->autoresponsive ?>,
+        submit_ajax: <?php echo (int)$block->getForm()->getConfig()->submitajax ?>,
+        submit_url: '<?php echo $block->getUrl('sfg/form/index', ['formid' => $block->getForm()->getId()]) ?>',
+        ajax_url: '<?php echo $block->getUrl('sfg/form/index', ['formid' => $block->getForm()->getId(), 'sfg_ajax' => 1]) ?>',
+        fileDownloadUrl: '<?php echo $block->getUrl('sfg/form/getFile', ['formid' => $block->getForm()->getId()]) ?>',
+        data: <?php echo json_encode($block->getCanvasDataArray()) ?>
+    });
+</script>
+<script type="text/javascript" src="<?php echo $block->getUrl('sfg/form/getJs', ['object'=>'validators', 'formid'=>$block->getForm()->getId()]) ?>"></script>
+<script type="text/javascript" src="<?php echo $block->getUrl('sfg/form/getJs', ['object'=>'custom', 'formid'=>$block->getForm()->getId()]) ?>"></script>

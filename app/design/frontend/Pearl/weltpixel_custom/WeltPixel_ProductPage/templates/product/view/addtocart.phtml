@@ -1,0 +1,119 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_helper = $this->helper('WeltPixel\ProductPage\Helper\Data'); ?>
+<?php $selectMaxValue = $_helper->getQtySelectMaxValue(); ?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php $buttonTitleLogin = __('Login to See Price'); ?>
+<?php $addToCartClass = !$block->shouldRenderQuantity() ? 'full-width-btn' : ''; ?>
+<?php
+$om = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $om->get('Magento\Customer\Model\SessionFactory')->create();
+$customerData = $customerSession->getCustomer();
+$erpCustomerCodes = explode(",", $customerData->getErpCustomerCode());
+$erpProductCategoryCode=explode(",", $_product->getErpProductCategoryCode());
+$flag=false;
+if(count($erpProductCategoryCode) > 0) {
+    foreach($erpProductCategoryCode as $ProductCategoryCode) {
+        if(in_array($ProductCategoryCode,$erpCustomerCodes)) {
+            $flag=true;
+            break;
+        }
+    }
+}
+?>
+<?php
+if($customerSession->isLoggedIn()  && ($flag==1) && !empty($_product->getErpProductCategoryCode())):
+?>
+    <?php if ($_product->isSaleable()): ?>
+        <div class="box-tocart">
+            <div class="fieldset">
+                <?php if ($block->shouldRenderQuantity()): ?>
+                    <div class="field qty">
+                        <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
+                        <div class="control">
+                            <select name="qty"
+                                    title="<?php /* @escapeNotVerified */ echo __('Qty') ?>"
+                                    id="qty"
+                                    class="input-text qty">
+                                <?php foreach (range(1, $selectMaxValue) as $number) : ?>
+                                    <option value="<?php echo $number ?>"><?php echo $number ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="actions  <?php echo $addToCartClass; ?>">
+                    <button type="submit"
+                            title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                            class="action primary tocart"
+                            id="product-addtocart-button">
+                        <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+                    </button>
+                    <?php echo $block->getChildHtml('', true) ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php else: ?>
+    <div class="box-tocart">
+        <?php
+        if($customerSession->isLoggedIn()): ?>
+            Please contact our Customer Service department for further details<br><br>
+
+            1-800-561-8873 EN<br><br>
+
+            1-800-363-9914 FR
+        <?php else: ?>
+            <div class="fieldset">
+                <div class="actions">
+                    <button type="button" style="width:100%;" onclick="window.location.href='/customer/account/login'"
+                            title="<?php /* @escapeNotVerified */ echo $buttonTitleLogin ?>"
+                            class="primary">
+                        <span><?php /* @escapeNotVerified */ echo $buttonTitleLogin ?></span>
+                    </button>
+                    <?php echo $block->getChildHtml('', true) ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($block->isRedirectToCartEnabled()) : ?>
+    <script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }
+</script>
+<?php else : ?>
+    <script>
+        require([
+            'jquery',
+            'mage/mage',
+            'Magento_Catalog/product/view/validation',
+            'Magento_Catalog/js/catalog-add-to-cart'
+        ], function ($) {
+            'use strict';
+
+            $('#product_addtocart_form').mage('validation', {
+                radioCheckboxClosest: '.nested',
+                submitHandler: function (form) {
+                    var widget = $(form).catalogAddToCart({
+                        bindSubmit: false
+                    });
+
+                    widget.catalogAddToCart('submitForm', $(form));
+
+                    return false;
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

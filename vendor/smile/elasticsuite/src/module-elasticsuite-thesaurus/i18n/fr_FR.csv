@@ -1,0 +1,49 @@
+Thesaurus,Thesaurus
+"Add New Thesaurus","Add New Thesaurus"
+"Create Thesaurus","Create Thesaurus"
+"Create a Thesaurus","Create a Thesaurus"
+Synonym,Synonym
+Expansion,Expansion
+Type,Type
+"Thesaurus Type","Type de thésaurus"
+"Save Thesaurus","Sauvegarder le thésaurus"
+"Save and Continue Edit","Sauvegarder et continuer à éditer"
+"Delete Thesaurus","Supprimer le thésaurus"
+"Edit a Thesaurus","Modifier le thésaurus"
+"General Information","Informations générales"
+"Thesaurus Name","Nom du thésaurus"
+Active,Activé
+Store,Vue magasin
+"Bag of words","Liste de termes"
+Synonyms,Synonymes
+"Reference Term","Terme de référence"
+"Expansion terms","Termes étendus"
+"Add Expansion","Ajouter une expansion"
+"Synonym terms","Termes synonymes"
+"Add Synonym","Ajouter un synonyme"
+"This thesaurus no longer exists.","Ce thésaurus n'existe plus."
+"You deleted the thesaurus %1.","Vous avez supprimé le thésaurus %1."
+"Edit %1 (%2)","Édition : %1 (%2)"
+"Something went wrong while editing the thesaurus.","Une erreur s'est produite durant l'édition du thésaurus."
+"New Thesaurus (%1)","Nouveau thésaurus (%1)"
+"Please select searches.","Veuillez sélectionner un critère."
+"Total of %1 record(s) were deleted.","%1 enregistrement(s) ont été supprimé(s)."
+"You saved the thesaurus %1.","Thésaurus %1 sauvegardé."
+"Thesaurus Configuration","Configuration du thésaurus"
+"Synonyms Configuration","Configuration des synonymes"
+"Enable Synonyms Search","Activer la recherche par synonyme"
+"Synonyms Weight Divider","Pondérateur de poids pour les synonymes"
+"Query Expansions Configuration","Configuration de la recherche par expansion"
+"Enable Search Expansions","Activer la recherche par expansion"
+"Concepts Weight Divider","Pondérateur de poids pour les expansions"
+"ElasticSuite Thesaurus Indexing","Index de thésaurus ElasticSuite"
+"Reindex ElasticSuite search engine thesaurus.","Réindexer le thésaurus ElasticSuite."
+Delete,Supprimer
+"Are you sure?","Êtes-vous sûr ?"
+Name,Nom
+Expansions,Expansions
+Terms,Termes
+Status,Status
+Inactive,Désactivé
+Action,Action
+Edit,Editer

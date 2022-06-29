@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<validators>
+  <validator name="Required">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Field is required';
+msg = msg.replace('%s', sfgName); 
+if (obj.type && (obj.type.toLowerCase()=='checkbox' || obj.type.toLowerCase()=='radio') && !obj.checked) return msg; 
+if (obj.tagName.toLowerCase()=='select' && (obj.selectedIndex==-1 || obj.selectedIndex==0 && !obj.getAttribute('multiple'))) return msg; 
+if (obj.value=='') return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+if (empty($value)) return 'Field: '.$this->getAlias().'. Field is required';
+    ]]></php>
+  </validator>
+  <validator name="Group Required">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Group: %s. Please select a value';
+msg = msg.replace('%s', sfgName); 
+var objs = document.getElementsByName(obj.name); 
+var checked = false; 
+for (i=0; i<objs.length; i++) if (objs[i].checked) { checked = true; break; } 
+if (!checked) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+if (empty($value)) return 'Group: '.$this->getAlias().'. Please select a value';
+    ]]></php>
+  </validator>
+  <validator name="Check identical">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object, obj2 - another HTML element for comparing
+var msg = 'Field: %s. Entities are not identical';
+msg = msg.replace('%s', sfgName);
+var el2 = document.getElementsByName(obj2)[0];
+if (el2 && obj.value != el2.value) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$elements = $this->getForm()->getElementsByName($this->getParam('equal-to'));
+$value2 = count($elements) ? $elements[0]->getPostedValue() : null;
+if (!is_null($value2) && $value != $value2) return 'Fields '.$this->getAlias().' and '.$elements[0]->getAlias().' should be identical';
+    ]]></php>
+  </validator>
+  <validator name="Email">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Invalid email. Please specify a valid value';
+msg = msg.replace('%s', sfgName);
+var RegExp=/^((([a-z]|[0-9]|!|#|$|%|&|'|\*|\+|\-|\/|=|\?|\^|_|`|\{|\||\}|~)+(\.([a-z]|[0-9]|!|#|$|%|&|'|\*|\+|\-|\/|=|\?|\^|_|`|\{|\||\}|~)+)*)@((((([a-z]|[0-9])([a-z]|[0-9]|\-){0,61}([a-z]|[0-9])\.))*([a-z]|[0-9])([a-z]|[0-9]|\-){0,61}([a-z]|[0-9])\.)[\w]{2,4}|(((([0-9]){1,3}\.){3}([0-9]){1,3}))|(\[((([0-9]){1,3}\.){3}([0-9]){1,3})\])))$/;
+if (obj.value!='' && !RegExp.test(obj.value.toLowerCase())) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$RegExp="/^((([a-z]|[0-9]|!|#|$|%|&|'|\*|\+|\-|\/|=|\?|\^|_|`|\{|\||\}|~)+(\.([a-z]|[0-9]|!|#|$|%|&|'|\*|\+|\-|\/|=|\?|\^|_|`|\{|\||\}|~)+)*)@((((([a-z]|[0-9])([a-z]|[0-9]|\-){0,61}([a-z]|[0-9])\.))*([a-z]|[0-9])([a-z]|[0-9]|\-){0,61}([a-z]|[0-9])\.)[\w]{2,4}|(((([0-9]){1,3}\.){3}([0-9]){1,3}))|(\[((([0-9]){1,3}\.){3}([0-9]){1,3})\])))$/";
+if (is_array($value) || $value && !preg_match($RegExp, strtolower($value))) return 'Field: '.$this->getAlias().'. Incorrect Email address';
+    ]]></php>
+  </validator>
+  <validator name="Zip">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Please specify a correct zip/postal';
+msg = msg.replace('%s', sfgName);
+var letters='qwertyuiopasdfghjklzxcvbnm -1234567890';
+var ps=false;
+for(i=0;i<obj.value.length;i++) if (letters.indexOf(obj.value.toLowerCase().substr(i,1))<0) ps=true;
+if (ps || obj.value.length>10) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+if (is_array($value)) $value = '*'; //invalidate
+for($i=0; $i<strlen($value); $i++) {
+    if (strpos('qwertyuiopasdfghjklzxcvbnm -1234567890', substr(strtolower($value), $i, 1))===false) return 'Field: '.$this->getAlias().'. Please specify a correct zip/postal';
+}
+    ]]></php>
+  </validator>
+  <validator name="ZipUS">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Invalid US Zip. Please specify a valid value';
+msg = msg.replace('%s', sfgName);
+var zipPattern1=/^(\d{5})$/;
+var zipPattern2=/^(\d{5})\-(\d{4})$/;
+if ((obj.value.match(zipPattern1)==null)&&(obj.value.match(zipPattern2)==null)&&obj.value.length>0) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$zipPattern1="/^(\d{5})$/";
+$zipPattern2="/^(\d{5})\-(\d{4})$/";
+if (is_array($value) || $value && !preg_match($zipPattern1, $value) && !preg_match($zipPattern2, $value)) return 'Field: '.$this->getAlias().'. Incorrect Zip';
+    ]]></php>
+  </validator>
+  <validator name="Phone">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Please specify a correct phone number';
+msg = msg.replace('%s', sfgName);
+var letters='1234567890 -.()+';
+var ps=false;
+for(i=0;i<obj.value.length;i++) if (letters.indexOf(obj.value.toLowerCase().substr(i,1))<0) ps=true;
+if (ps || obj.value.length>10) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+for($i=0; $i<strlen($value); $i++) {
+    if (strpos('1234567890 -.()+', substr($value, $i, 1))===false) return 'Field: '.$this->getAlias().'. Incorrect phone number';
+}
+    ]]></php>
+  </validator>
+  <validator name="PhoneUS">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Invalid value! Please, provide a phone number in format XXX-XXX-XXXX, where X is a digit.';
+msg = msg.replace('%s', sfgName);
+var phonePattern=/^(\d{3})\-(\d{3})\-(\d{4})$/;
+if ((obj.value.match(phonePattern)==null)&&obj.value.length>0) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$phonePattern="/^(\d{3})\-(\d{3})\-(\d{4})$/";
+if (is_array($value) || $value && !preg_match($phonePattern, $value)) return 'Field: '.$this->getAlias().'. Please, provide a phone number in format XXX-XXX-XXXX, where X is a digit';
+    ]]></php>
+  </validator>
+  <validator name="Password">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. The password should contain 6 to 12 symbols';
+msg = msg.replace('%s', sfgName);
+if ((obj.value.length<6 || obj.value.length>12) && obj.value.length!=0) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+if (is_array($value) || $value && (strlen($value) < 6 || strlen($value) > 12)) return 'Field: '.$this->getAlias().'. The password should have 6 to 12 symbols';
+    ]]></php>
+  </validator>
+  <validator name="CreditCardNumber">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Please specify a correct credit card number';
+msg = msg.replace('%s', sfgName);
+var ccPattern=/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
+if ((obj.value.match(ccPattern)==null)&&obj.value.length>0) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$ccPattern="/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/";
+if (is_array($value) || $value && !preg_match($ccPattern, strtolower($value))) return 'Field: '.$this->getAlias().'. Incorrect credit card number';
+    ]]></php>
+  </validator>
+  <validator name="CreditCardCVV">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Please specify a correct credit card CVV';
+msg = msg.replace('%s', sfgName);
+var letters='1234567890';
+var ps=false;
+for(i=0;i<obj.value.length;i++) if (letters.indexOf(obj.value.toLowerCase().substr(i,1))<0) ps=true;
+if (ps || (obj.value.length<3 && obj.value.length!=0) || obj.value.length>4) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+if (is_array($value) || $value && (strlen($value) < 3 || strlen($value) > 4 || !is_numeric($value))) return 'Field: '.$this->getAlias().'. Incorrect credit card CVV';
+    ]]></php>
+  </validator>
+  <validator name="Money">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Please specify currency correctly';
+msg = msg.replace('%s', sfgName);
+var letters='1234567890.';
+var ps=false; for(i=0;i<obj.value.length;i++) if (letters.indexOf(obj.value.toLowerCase().substr(i,1))<0) ps=true;
+if (ps || obj.value.length>10 || Math.floor(obj.value*100)/100!=obj.value-0) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+if (is_array($value) || $value && (floor(floatval($value)*100)/100!=floatval($value) || !is_numeric($value))) return 'Field: '.$this->getAlias().'. Incorrect amount';
+    ]]></php>
+  </validator>
+  <validator name="URL">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Please specify a valid URL';
+msg = msg.replace('%s', sfgName);
+var RegExp=/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/;
+if (obj.value!='' && !RegExp.test(obj.value)) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$RegExp="/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/";
+if (is_array($value) || $value && !preg_match($RegExp, strtolower($value))) return 'Field: '.$this->getAlias().'. Incorrect URL';
+    ]]></php>
+  </validator>
+  <validator name="IP">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Please specify a correct IP';
+msg = msg.replace('%s', sfgName);
+var RegExp=/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+var a=obj.value.split('.');
+if (obj.value!='' && !RegExp.test(obj.value) || a[0]>255 || a[1]>255 || a[2]>255 || a[3]>255) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+if (is_array($value) || $value && ip2long($value) === false) return 'Field: '.$this->getAlias().'. Incorrect IP';
+    ]]></php>
+  </validator>
+  <validator name="SSN">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Invalid value! Please, provide a SSN in format XXX-XX-XXXX or XX-XXXXXXX, where X is a digit.';
+msg = msg.replace('%s', sfgName);
+var ssnPattern1 = /^(\d{3})\-(\d{2})\-(\d{4})$/;
+var ssnPattern2 = /^(\d{2})\-(\d{7})$/;
+if ((obj.value.match(ssnPattern1)==null)&&(obj.value.match(ssnPattern2)==null)&&obj.value.length>0) return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$ssnPattern1="/^(\d{3})\-(\d{2})\-(\d{4})$/";
+$ssnPattern2="/^(\d{2})\-(\d{7})$/";
+if (is_array($value) || $value && !preg_match($ssnPattern1, $value) && !preg_match($ssnPattern2, $value)) return 'Field: '.$this->getAlias().'. SSN should be in format XXX-XX-XXXX or XX-XXXXXXX, where X is a digit.';
+    ]]></php>
+  </validator>
+  <validator name="Date">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Invalid value! Field value should be in MM/DD/YYYY format.';
+msg = msg.replace('%s', sfgName);
+var a=obj.value.split('/');
+if (a[0]-0>0 && a[0]-0<=12 && a[1]-0>0 && a[1]-0<=31 && a[2]-0>1000 && a[2]-0<=9999 && a[3]==null ||obj.value.length==0) return null; else return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$datePattern="/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/";
+if (is_array($value) || $value && !preg_match($datePattern, $value)) return 'Field: '.$this->getAlias().'. Date should be in MM/DD/YYYY format.';
+    ]]></php>
+  </validator>
+  <validator name="DateShort">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Invalid value! Field value should be in MM/DD/YY format';
+msg = msg.replace('%s', sfgName);
+var a=obj.value.split('/');
+if (a[0]-0>0 && a[0]-0<=12 && a[1]-0>0 && a[1]-0<=31 && a[2]-0>=0 && a[2]-0<=99 && a[3]==null ||obj.value.length==0) return null; else return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$datePattern="/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/";
+if (is_array($value) || $value && !preg_match($datePattern, $value)) return 'Field: '.$this->getAlias().'. Date should be in MM/DD/YY format.';
+    ]]></php>
+  </validator>
+  <validator name="Time">
+    <js><![CDATA[
+// incoming variables: obj - HTML element firing the event, sfgName - system name of the object 
+var msg = 'Field: %s. Invalid value! Field value should be in HH:MM format.';
+msg = msg.replace('%s', sfgName);
+var a=obj.value.split(':');
+if (a[0]-0>=0 && a[0]-0<24 && a[1]-0>=0 && a[1]-0<60 && a[2]==null ||obj.value.length==0) return null; else return msg;
+    ]]></js>
+    <php><![CDATA[
+// $this is the Element object
+$value = $this->getPostedValue();
+$timePattern="/^(\d{1,2})\:(\d{2})$/";
+if (is_array($value) || $value && !preg_match($timePattern, $value)) return 'Field: '.$this->getAlias().'. Time should be in HH:MM format.';
+    ]]></php>
+  </validator>
+</validators>

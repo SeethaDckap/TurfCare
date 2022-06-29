@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Magedelight
+* Copyright (C) 2016 Magedelight <info@magedelight.com>
+*
+* @category Magedelight
+* @package Magedelight_Orderbysku
+* @copyright Copyright (c) 2016 Mage Delight (http://www.magedelight.com/)
+* @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+* @author Magedelight <info@magedelight.com>
+*/
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Magedelight\Orderbysku\Block\Html\HeaderLink" name="quickorder-header-link" >
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Order Parts</argument>
+                    <argument name="path" xsi:type="string" translate="true">#</argument>
+                    <argument name="sortOrder" xsi:type="number">400</argument>
+                    <argument name="class" xsi:type="string">quickparts</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Customer\Block\Account\Customer" name="top.quickorder.links" template="Magedelight_Orderbysku::sub_links.phtml" after="quickorder-header-link"/>
+        </referenceBlock>
+        <block class="Magento\Customer\Block\Account\Navigation" name="quickorder.sub.links">
+            <arguments>
+                <argument name="css_class" xsi:type="string">company header links</argument>
+            </arguments>
+        </block>
+        <referenceBlock name="quickorder.sub.links">
+            <block class="Magedelight\Orderbysku\Block\Html\HeaderLink" name="by-parts-diagram">
+                <arguments>
+                    <argument name="class" xsi:type="string">part-diagram</argument>
+                    <argument name="label" xsi:type="string" translate="true">By Parts Diagram</argument>
+                    <argument name="path" xsi:type="string" translate="true">partstream</argument>
+                    <argument name="sortOrder" xsi:type="number">400</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="quickorder" ifconfig="orderbysku/general/enable">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Quick Order</argument>
+                    <argument name="path" xsi:type="string">orderbysku/</argument>
+                    <argument name="class" xsi:type="string">quickorder</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <move element="quickorder.sub.links" destination="top.quickorder.links"/>
+    </body>
+</page>

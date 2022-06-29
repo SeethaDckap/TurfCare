@@ -1,0 +1,22 @@
+<?php
+
+$product = $this->getProduct();
+$supersededSku = $product->getSupersedes();
+$supersededItemName = null;
+
+if($supersededSku){
+    $supersededItemName = $this->getSupersededItemName($supersededSku);
+    $supersededItemURL = ($this->getSupersededProductURL($supersededSku))?:'#';
+    $supersededSku = $this->getSupersededItemSku($supersededSku);
+}
+?>
+<?php if($supersededItemName):?>
+<div class="title">
+    <strong><p><?= $block->escapeHtml(__('Item Relationships')) ?></p></strong>
+</div>
+<div class="part-information">
+    <p class="label"><?= $block->escapeHtml(__('Superseded By')) ?></p>
+    <strong><a href="<?php echo $supersededItemURL?>"><p class="superseded_item_sku"><?php echo $supersededSku;?></p></a></strong>
+    <p class="superseded_item_name"><?php echo $supersededItemName;?></p>
+</div>
+<?php endif;?>

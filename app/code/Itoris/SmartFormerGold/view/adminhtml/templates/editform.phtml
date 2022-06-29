@@ -1,0 +1,84 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_SMARTFORMER_GOLD
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+$block->checkForJSMin();
+$mediaWebBaseUrl = $block->getMediaWebBaseUrl();
+$fid = $block->getFormId();
+//load template
+$template_name = 'sfgnew';
+//$template_file = $mediaWebBaseUrl.'/templates/'.$template_name.'.html';
+//$template_file = dirname(dirname(__FILE__)).'/web/templates/'.$template_name.'.html';
+//$tmpl = @file_get_contents($template_file);
+$sfgLang = 'en';
+$editAreaLang = 'en';//$GLOBALS['sfg']['translations']['lang'];
+$tinyMCELang = 'en';//$GLOBALS['sfg']['translations']['lang'];
+?>
+    <script language="Javascript" type="text/javascript">
+        var container = document.getElementById('container');
+        if (container) container.id = '_container';
+    </script>
+    <link rel="stylesheet" href="<?php echo $mediaWebBaseUrl ?>/sfg.css" type="text/css" />
+    <div id="container" style="width:100%; height:600px; position:relative; box-sizing:initial;">
+        <div id="sfg_menu"></div>
+        <div id="sfg_top"></div>
+        <div id="sfg_central">
+            <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+                <tr>
+                    <td width="20" align="left" valign="top">
+                        <div id="sfg_elements_bar"></div>
+                    </td>
+                    <td align="left" valign="top">
+                        <div id="sfg_container">
+                            <div id="sfg_inner_container">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>    
+    </div>
+    <script language="Javascript" type="text/javascript" src="<?php echo $mediaWebBaseUrl ?>/sfg.js"></script>
+    <script language="Javascript" type="text/javascript">
+        var sfg_template = '<?php echo $template_name; ?>';
+        document.sfgArea = document.getElementById('container');
+        window.lang = document.lang = '<?php echo $sfgLang; ?>';
+        document.editAreaLang = '<?php echo $editAreaLang; ?>';
+        document.tinyMCELang = '<?php echo $tinyMCELang; ?>';
+        document.adminURL = '<?php echo $mediaWebBaseUrl; ?>';
+        document.siteURL = '<?php //echo $GLOBALS['mosConfig_live_site']; ?>';
+        document.getDbTableListUrl = '<?php echo $this->getUrl('*/*/getdbtables') ?>';
+        document.getDbTableInfoUrl = '<?php echo $this->getUrl('*/*/getdbtableinfo') ?>';
+        document.getDbTableFieldsUrl = '<?php echo $this->getUrl('*/*/getdbtablefields') ?>';
+        document.execQueryUrl = '<?php echo $this->getUrl('*/*/execquery') ?>';
+        document.loadFormUrl = '<?php echo $this->getUrl('*/*/loadform') ?>';
+        document.saveFormUrl = '<?php echo $this->getUrl('*/*/saveform') ?>';
+        document.getImageList = '<?php echo $this->getUrl('*/*/getimagelist') ?>';
+        document.getUploadImageUrl = '<?php echo $this->getUrl('*/*/uploadimage') ?>';
+        document.mediaUrl = '<?php echo $block->getMediaUrl() ?>';
+        document.form_id = <?php echo $fid; ?>;
+        document.backListUrl = '<?php echo $this->getUrl('*/*/index') ?>';
+        document.sfgVersion = '<?php echo $block->getSfgVersion() ?>';
+        document.customerGroups = <?php echo json_encode($block->getCustomerGroups()) ?>;
+        sfgInitialize();
+    </script>

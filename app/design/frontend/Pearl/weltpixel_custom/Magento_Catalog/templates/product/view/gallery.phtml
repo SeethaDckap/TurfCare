@@ -1,0 +1,69 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+?>
+<?php $_turfcareHelper = $this->helper('LeanSwift\Turfcare\Helper\Data'); ?>
+<?php
+$images = $block->getGalleryImages()->getItems();
+$mainImage = current(array_filter($images, function ($img) use ($block) {
+    return $block->isMainImage($img);
+}));
+
+if (!empty($images) && empty($mainImage)) {
+    $mainImage = $block->getGalleryImages()->getFirstItem();
+}
+
+$helper = $block->getData('imageHelper');
+$mainImageData = $mainImage ?
+    $mainImage->getData('medium_image_url') :
+    $helper->getDefaultPlaceholderUrl('image');
+
+?>
+<?php /*$supersededSku = $block->getProduct()->getSupersedes();
+$validationResult = $_turfcareHelper->isSupersededItemExist($supersededSku);
+$showBanner = false;
+$supersededFinalUrl = "#";
+$supersededFinalSku = "";
+if($supersededSku && $validationResult){
+    $supersededFinalUrl = $_turfcareHelper->getSupersededUrl($supersededSku);
+    $supersededFinalSku = $_turfcareHelper->getSupersededSku($supersededSku);
+    $showBanner = true;
+}*/
+$showBanner = false;
+?>
+<?php if($showBanner) { ?>
+    <div class="supersedes-pdp-banner">
+        <strong class="type">This item has been replaced by <a href="<?php //echo $supersededFinalUrl;?>"><?php echo $supersededFinalSku;?></a></strong>
+    </div>
+<?php } ?>
+<div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
+    <img
+        alt="main product photo"
+        class="gallery-placeholder__image"
+        src="<?= /* @noEscape */ $mainImageData ?>"
+    />
+</div>
+<script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": <?= /* @escapeNotVerified */ $block->getMagnifier() ?>,
+                "data": <?= /* @escapeNotVerified */ $block->getGalleryImagesJson() ?>,
+                "options": <?= /* @noEscape */ $block->getGalleryOptions()->getOptionsJson() ?>,
+                "fullscreen": <?= /* @noEscape */ $block->getGalleryOptions()->getFSOptionsJson() ?>,
+                "breakpoints": <?= /* @escapeNotVerified */ $block->getBreakpoints() ?>
+            }
+        }
+    }
+</script>

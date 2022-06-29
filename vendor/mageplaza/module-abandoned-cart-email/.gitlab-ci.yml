@@ -1,0 +1,58 @@
+# image: php:7.1
+
+before_script:
+  - apt-get update -qq
+  - apt-get install composer zip curl php-simplexml php-dom -y
+
+variables:
+  POST_CONTENT_TYPE: 'Content-Type: application/json'
+  EQP_REPO: https://github.com/magento/marketplace-eqp
+stages:
+  - test
+  - deploy
+
+test_eqp:
+  stage: test
+  only:
+    - master
+  allow_failure: true
+  script:
+    - module_name=$(basename `git rev-parse --show-toplevel`)
+
+    # RUN EQP
+    - curl -X POST -H "$POST_CONTENT_TYPE" --data '{"text":"Start running EQP for MEQP2 "}' $CHAT_HOOK
+    - cd ../
+    - git clone $EQP_REPO
+    - cd marketplace-eqp/ && composer install
+    - cd ..
+    - eqp_file=eqp_$module_name.txt
+    - marketplace-eqp/vendor/bin/phpcs $module_name --standard=MEQP2 --severity=10 --extensions=php,phtml > $module_name/$eqp_file
+    - cd $module_name
+
+    # RUN EQP for Technical Review
+    - fullPathEqp=$(readlink -f $eqp_file)
+    - curl -F "fileToUpload=@$fullPathEqp" $UPLOAD_TO > upload_msg.txt
+    - message=$(cat upload_msg.txt)
+    - curl -X POST -H "$POST_CONTENT_TYPE" --data "$message" $CHAT_HOOK
+
+
+deploy_production:
+  stage: deploy
+  when: on_success
+  only:
+    - master
+  script:
+    - ls .
+    - module_name=$(basename `git rev-parse --show-toplevel`)
+    - version=$(git describe --abbrev=0 --tags)
+    - package=$module_name-$version.zip
+    - rm -rf .git .gitlab-ci.yml vendor/
+
+    # Package
+    - zip -r $package . -x $package
+    - ls -lt
+    - readlink -f $package
+    - fullPath=$(readlink -f $package)
+    - curl -F "fileToUpload=@$fullPath" $UPLOAD_TO > upload_msg.txt
+    - message=$(cat upload_msg.txt)
+    - curl -X POST -H "$POST_CONTENT_TYPE" --data "$message" $CHAT_HOOK

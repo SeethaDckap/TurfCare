@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Address $block */
+?>
+<div class="block block-dashboard-addresses">
+    <div class="block-title">
+        <strong><?= $block->escapeHtml(__('Address Book')) ?></strong>
+        <a class="action edit" href="<?= $block->escapeUrl($block->getAddressBookUrl()) ?>"><span><?= $block->escapeHtml(__('Manage Addresses')) ?></span></a>
+    </div>
+    <div class="block-content">
+        <div class="box box-shipping-address">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Default Shipping Address')) ?></span>
+            </strong>
+            <div class="box-content">
+                <address>
+                    <?= $block->getPrimaryShippingAddressHtml() ?>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>

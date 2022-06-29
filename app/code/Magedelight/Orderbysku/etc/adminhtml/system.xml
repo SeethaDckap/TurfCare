@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Magedelight
+* Copyright (C) 2016 Magedelight <info@magedelight.com>
+*
+* @category Magedelight
+* @package Magedelight_Orderbysku
+* @copyright Copyright (c) 2016 Mage Delight (http://www.magedelight.com/)
+* @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+* @author Magedelight <info@magedelight.com>
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magedelight" translate="label" sortOrder="3000">
+            <label>Magedelight</label>
+        </tab>
+        <section id="orderbysku" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>md_section_orderbysku</class>
+            <label>Order By SKU</label>
+            <tab>magedelight</tab>
+            <resource>Magedelight_Orderbysku::orderbysku</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="page_title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Title</label>
+                </field>
+                <field id="enable_for_customer_group" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable For Customer Group</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                </field>
+                <field id="enable_for_guest_users" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable For Guest Users</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="upload_file" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Upload File Configuration</label>
+                <field id="file_data_note" translate="label comment" sortOrder="20" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>File Instruction for upload</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

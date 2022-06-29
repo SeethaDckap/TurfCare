@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Smile_ElasticsuiteCatalogOptimizer dependency injection configuration.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Smile ElasticSuite to newer
+ * versions in the future.
+ *
+ * @category  Smile
+ * @package   Smile\ElasticsuiteCatalogOptimizer
+ * @author    Fanny DECLERCK <fadec@smile.fr>
+ * @copyright 2020 Smile
+ * @license   Open Software License ("OSL") v. 3.0
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Smile\ElasticsuiteCatalogOptimizer\Api\Data\OptimizerInterface" xsi:type="string">Smile\ElasticsuiteCatalogOptimizer\Api\OptimizerRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Smile\ElasticsuiteCatalogOptimizer\Api\Data\OptimizerInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">smile_elasticsuite_optimizer</item>
+                    <item name="identifierField" xsi:type="string">optimizer_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Smile\ElasticsuiteCatalogOptimizer\Api\Data\OptimizerInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Dependency Injection for Optimizer Models -->
+    <preference for="Smile\ElasticsuiteCatalogOptimizer\Api\OptimizerRepositoryInterface" type="Smile\ElasticsuiteCatalogOptimizer\Model\OptimizerRepository" />
+    <preference for="Smile\ElasticsuiteCatalogOptimizer\Api\Data\OptimizerInterface" type="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer" />
+    <preference for="Smile\ElasticsuiteCatalogOptimizer\Api\Data\OptimizerSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Locator\LocatorInterface" type="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Locator\RegistryLocator" />
+
+    <!-- Apply boost plugin -->
+    
+    <!-- Plugin -->
+    <type name="\Smile\ElasticsuiteCore\Search\Request\Query\Builder">
+        <plugin name="queryRewriteOptimizers" type="\Smile\ElasticsuiteCatalogOptimizer\Plugin\QueryRewrite" />
+    </type>
+
+    <!-- Optimizer providers -->
+    
+    <virtualType name="defaultOptimizerProviderFactory" type="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Collection\Provider\DefaultProviderFactory" />
+    <virtualType name="excludeOptimizerProviderFactory" type="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Collection\Provider\ExcludeFactory" />
+    <virtualType name="onlyOptimizerProviderFactory" type="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Collection\Provider\OnlyFactory" />
+    <virtualType name="replaceOptimizerProviderFactory" type="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Collection\Provider\ReplaceFactory" />
+
+    <type name="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Collection\ProviderFactory">
+        <arguments>
+            <argument name="factories" xsi:type="array">
+                <item name="default" xsi:type="object">defaultOptimizerProviderFactory</item>
+                <item name="exclude" xsi:type="object">excludeOptimizerProviderFactory</item>
+                <item name="only"    xsi:type="object">onlyOptimizerProviderFactory</item>
+                <item name="replace" xsi:type="object">replaceOptimizerProviderFactory</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="autocompleteOptimizerFilter" type="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Search\OptimizerFilter">
+        <arguments>
+            <argument name="containerName" xsi:type="string">catalog_product_autocomplete</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\ApplierList">
+        <arguments>
+            <argument name="collectionProvider" xsi:type="object">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Collection\Provider\DefaultProvider</argument>
+            <argument name="cacheKeyProvider" xsi:type="object">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Functions\CacheKeyProvider</argument>
+            <argument name="appliers" xsi:type="array">
+                <item name="constant_score" xsi:type="object">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Applier\ConstantScore</item>
+                <item name="attribute_value" xsi:type="object">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Applier\AttributeValue</item>
+            </argument>
+            <argument name="filters" xsi:type="array">
+                <item name="quick_search_container" xsi:type="object">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Search\OptimizerFilter</item>
+                <item name="catalog_view_container" xsi:type="object">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Category\OptimizerFilter</item>
+                <item name="catalog_product_autocomplete" xsi:type="object">autocompleteOptimizerFilter</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Smile\ElasticsuiteCatalogOptimizer\Model\ResourceModel\Optimizer\Config\Attributes\Collection">
+        <arguments>
+            <argument name="nestedFieldAttributes" xsi:type="array">
+                <item name="price" xsi:type="string">price</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Handle saving of relationship between optimizer and categories or search terms -->
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Smile\ElasticsuiteCatalogOptimizer\Api\Data\OptimizerInterface" xsi:type="array">
+                    <item name="create" xsi:type="array">
+                        <item name="optimizerLimitationPersistor" xsi:type="string">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Limitation\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="optimizerLimitationPersistor" xsi:type="string">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Limitation\SaveHandler</item>
+                    </item>
+                    <item name="read" xsi:type="array">
+                        <item name="optimizerLimitationReader" xsi:type="string">Smile\ElasticsuiteCatalogOptimizer\Model\Optimizer\Limitation\ReadHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

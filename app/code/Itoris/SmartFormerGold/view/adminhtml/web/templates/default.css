@@ -1,0 +1,52 @@
+#sfg_menu {
+	width:100%;
+	height:16px;
+	background:#dddddd;
+	border:1px solid #bbbbbb;
+}
+
+#sfg_top {
+	width:100%;
+	height:18px;
+	background:#eeeeee;
+	border:1px solid #bbbbbb;
+	border-top:none;
+}
+#sfg_central {
+	width:100%;
+	height:400px;
+	border:1px solid #bbbbbb;
+	border-top:none;
+}
+#sfg_elements_bar {
+	width:22px;
+	float:left;
+	background:#dddddd;
+	height:400px;
+}
+
+#sfg_container {
+	border:1px solid #bbbbbb;
+	float:left;
+	position:relative;
+	overflow:scroll;
+	height:400px;
+	width:100px;
+}
+
+#sfg_inner_container {
+	width:1400px;
+	height:2000px;
+}
+
+#sfg_logo {
+	float:right;
+	position:relative;
+}
+
+#sfg_logo img{
+	position:absolute;
+	left:-101px;
+	top:-16px;
+	cursor:pointer;
+}

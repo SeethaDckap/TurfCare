@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<prototype>
+	<element name="Input Box" image="editbox.png" tag="input">
+		<attributes>
+			<type>text</type>
+		</attributes>
+		<styles>
+			<width>220px</width>
+		</styles>
+	</element>
+	<element name="Password" image="password.png" tag="input">
+		<attributes>
+			<type>password</type>
+		</attributes>
+		<styles>
+			<width>220px</width>
+		</styles>
+	</element>
+	<element name="Check Box" image="checkbox.png" tag="input">
+		<attributes>
+			<type>checkbox</type>
+		</attributes>
+	</element>
+	<element name="Radio Button" image="radiobutton.png" tag="input">
+		<attributes>
+			<type>radio</type>
+		</attributes>
+	</element>
+	<element name="File Upload" image="upload.png" tag="input">
+		<attributes>
+			<type>file</type>
+			<size>30</size>
+		</attributes>
+		<styles>
+			<width>220px</width>
+		</styles>
+	</element>
+	<element name="Button (type 1)" image="button.png" tag="input">
+		<attributes>
+			<type>button</type>
+			<value>Button</value>
+            <class>action primary</class>
+		</attributes>
+		<styles>
+			<width>80px</width>
+		</styles>
+	</element>
+	<element name="Button (type 2)" image="button2.png" tag="button">
+		<content>Button</content>
+		<attributes>
+            <class>action primary</class>
+		</attributes>
+		<styles>
+			<width>60px</width>
+		</styles>
+	</element>
+	<element name="Reset Button" image="reset.png" tag="input">
+		<attributes>
+			<type>reset</type>
+			<value>Reset</value>
+		</attributes>
+		<styles>
+			<width>80px</width>
+		</styles>
+	</element>
+	<element name="Submit Button" image="submit.png" tag="input">
+		<attributes>
+			<type>submit</type>
+			<value>Submit</value>
+            <class>action primary</class>
+		</attributes>
+		<styles>
+			<width>80px</width>
+		</styles>
+		<params>
+			<on-click-action>1</on-click-action>
+		</params>
+	</element>
+	<element name="Text Area" image="textarea.png" tag="textarea">
+		<content>Sample Text</content>
+		<attributes>
+			<rows>5</rows>
+			<cols>30</cols>
+		</attributes>
+		<styles>
+			<width>220px</width>
+			<height>70px</height>
+		</styles>
+	</element>
+	<element name="Select Box" image="select.png" tag="select">
+		<styles>
+			<width>220px</width>
+		</styles>
+		<content>
+0|-- Please select --
+1|Item 1
+2|Item 2
+3|Item 3
+		</content>
+	</element>
+	<element name="List Box" image="listbox.png" tag="select">
+		<attributes>
+			<size>4</size>
+		</attributes>
+		<styles>
+			<width>220px</width>
+            <height>150px</height>
+		</styles>
+		<content>
+1|Item 1
+2|Item 2
+*3|Item 3
+4|Item 4
+5|Item 5
+		</content>
+	</element>
+	<element name="Static Text" image="statictext.png" tag="span">
+		<content>Static Text</content>
+	</element>
+	<element name="Link" image="link.png" tag="a">
+		<attributes>
+			<href>http://www.itoris.com</href>
+			<target>_blank</target>
+		</attributes>
+		<content>Internal/External Link</content>
+	</element>
+	<element name="DIV Element" image="div.png" tag="div">
+		<content>DIV Element</content>
+	</element>
+	<element name="Image" image="image.png" tag="img">
+		<attributes>
+			<src>{media_url}sfg/images/selectimage.png</src>
+			<alt>image</alt>
+		</attributes>
+	</element>
+	<element name="Drawing Canvas" image="canvas.png" tag="canvas">
+		<styles>
+			<width>350px</width>
+            <height>100px</height>
+            <border>3px dotted #DDDDDD</border>
+            <background-color>#FAFFFF</background-color>
+		</styles>
+		<params>
+			<canvas-pen-size>2</canvas-pen-size>
+			<canvas-pen-color>#000000</canvas-pen-color>
+			<canvas-background-color>#FAFFFF</canvas-background-color>
+		</params>
+	</element>
+	<element name="Captcha Image" image="captcha.png" tag="img">
+		<attributes>
+			<src>{captcha0}</src>
+			<alt>captcha code</alt>
+		</attributes>
+		<params>
+			<captcha-type>0</captcha-type>
+			<captcha-length>6</captcha-length>
+			<captcha-symbols>abcsefghijklmnopqrstuvwxyz023456789</captcha-symbols>
+		</params>
+	</element>
+
+	<preset name="Input box with Title">
+		<preview>
+			<span style="margin-right:5px;">Title:</span><input type="text" style="width:200px" />
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-120px</left>
+				<top>2px</top>
+			</styles>
+			<content>Title:</content>
+		</elm>
+		<elm proto="Input Box">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>220px</width>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="Required Input box with Title">
+		<preview>
+			<span style="margin-right:3px;">Title:</span><span style="margin-right:5px; color:#ff0000;">*</span><input type="text" style="width:200px" />
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-120px</left>
+				<top>2px</top>
+			</styles>
+			<content>Title:&lt;span style="color:red"&gt;*&lt;/span&gt;</content>
+		</elm>
+		<elm proto="Input Box">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>220px</width>
+			</styles>
+			<params>
+				<required>true</required>
+			</params>
+		</elm>
+	</preset>
+	<preset name="Required Password Box">
+		<preview>
+			<span style="margin-right:3px;">Password:</span><span style="margin-right:5px; color:#ff0000;">*</span><input type="text" style="width:200px" />
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-120px</left>
+				<top>2px</top>
+			</styles>
+			<content>Password:&lt;span style="color:red"&gt;*&lt;/span&gt;</content>
+		</elm>
+		<elm proto="Password">
+			<attributes>
+				<name>password</name>
+			</attributes>
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>220px</width>
+			</styles>
+			<params>
+				<required>true</required>
+			</params>
+		</elm>
+	</preset>
+	<preset name="Required Confirm Password Box">
+		<preview>
+			<span style="margin-right:3px;">Confirm Password:</span><span style="margin-right:5px; color:#ff0000;">*</span><input type="text" style="width:200px" />
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-120px</left>
+				<top>2px</top>
+			</styles>
+			<content>Confirm Password:&lt;span style="color:red"&gt;*&lt;/span&gt;</content>
+		</elm>
+		<elm proto="Password">
+			<attributes>
+				<name>confirm</name>
+			</attributes>
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>220px</width>
+			</styles>
+			<params>
+				<required>true</required>
+				<equal-to>password</equal-to>
+			</params>
+		</elm>
+	</preset>
+	<preset name="Set of Checkboxes (variant 1)">
+		<preview>
+			<table style="width:100%">
+				&lt;tr&gt;
+					&lt;td rowspan="3" width="100" align="left" valign="top"&gt;Group Name&lt;/td&gt;
+					&lt;td&gt;&lt;input type="checkbox"&gt;&amp;nbsp;Choice 1&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;input type="checkbox"&gt;&amp;nbsp;Choice 2&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;input type="checkbox"&gt;&amp;nbsp;Choice 3&lt;/td&gt;
+				&lt;/tr&gt;
+			</table>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-100px</left>
+				<top>3px</top>
+			</styles>
+			<content>Group Name</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>25px</left>
+				<top>3px</top>
+			</styles>
+			<content>Choice 1</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>25px</left>
+				<top>28px</top>
+			</styles>
+			<content>Choice 2</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>25px</left>
+				<top>53px</top>
+			</styles>
+			<content>Choice 3</content>
+		</elm>
+		<elm proto="Check Box">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+			</styles>
+		</elm>
+		<elm proto="Check Box">
+			<styles>
+				<left>0px</left>
+				<top>25px</top>
+			</styles>
+		</elm>
+		<elm proto="Check Box">
+			<styles>
+				<left>0px</left>
+				<top>50px</top>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="Set of Checkboxes (variant 2)">
+		<preview>
+			<table style="width:100%">
+				&lt;tr&gt;
+					&lt;td colspan="3" align="center" valign="top"&gt;Group Name&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;input type="checkbox"&gt;&amp;nbsp;Choice 1&lt;/td&gt;
+					&lt;td&gt;&lt;input type="checkbox"&gt;&amp;nbsp;Choice 2&lt;/td&gt;
+					&lt;td&gt;&lt;input type="checkbox"&gt;&amp;nbsp;Choice 3&lt;/td&gt;
+				&lt;/tr&gt;
+			</table>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+			</styles>
+			<content>Group Name</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>-77px</left>
+				<top>23px</top>
+			</styles>
+			<content>Choice 1</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>23px</left>
+				<top>23px</top>
+			</styles>
+			<content>Choice 2</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>123px</left>
+				<top>23px</top>
+			</styles>
+			<content>Choice 3</content>
+		</elm>
+		<elm proto="Check Box">
+			<styles>
+				<left>-100px</left>
+				<top>20px</top>
+			</styles>
+		</elm>
+		<elm proto="Check Box">
+			<styles>
+				<left>0px</left>
+				<top>20px</top>
+			</styles>
+		</elm>
+		<elm proto="Check Box">
+			<styles>
+				<left>100px</left>
+				<top>20px</top>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="Set of Radio Buttons (variant 1)">
+		<preview>
+			<table style="width:100%">
+				&lt;tr&gt;
+					&lt;td rowspan="3" width="100" align="left" valign="top"&gt;Group Name&lt;/td&gt;
+					&lt;td&gt;&lt;input type="radio"&gt;&amp;nbsp;Choice 1&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;input type="radio"&gt;&amp;nbsp;Choice 2&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;input type="radio"&gt;&amp;nbsp;Choice 3&lt;/td&gt;
+				&lt;/tr&gt;
+			</table>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-100px</left>
+				<top>3px</top>
+			</styles>
+			<content>Group Name</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>25px</left>
+				<top>3px</top>
+			</styles>
+			<content>Choice 1</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>25px</left>
+				<top>28px</top>
+			</styles>
+			<content>Choice 2</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>25px</left>
+				<top>53px</top>
+			</styles>
+			<content>Choice 3</content>
+		</elm>
+		<elm proto="Radio Button">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+			</styles>
+		</elm>
+		<elm proto="Radio Button">
+			<styles>
+				<left>0px</left>
+				<top>25px</top>
+			</styles>
+		</elm>
+		<elm proto="Radio Button">
+			<styles>
+				<left>0px</left>
+				<top>50px</top>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="Set of Radio Buttons (variant 2)">
+		<preview>
+			<table style="width:100%">
+				&lt;tr&gt;
+					&lt;td colspan="3" align="center" valign="top"&gt;Group Name&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;input type="radio"&gt;&amp;nbsp;Choice 1&lt;/td&gt;
+					&lt;td&gt;&lt;input type="radio"&gt;&amp;nbsp;Choice 2&lt;/td&gt;
+					&lt;td&gt;&lt;input type="radio"&gt;&amp;nbsp;Choice 3&lt;/td&gt;
+				&lt;/tr&gt;
+			</table>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+			</styles>
+			<content>Group Name</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>-77px</left>
+				<top>23px</top>
+			</styles>
+			<content>Choice 1</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>23px</left>
+				<top>23px</top>
+			</styles>
+			<content>Choice 2</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>123px</left>
+				<top>23px</top>
+			</styles>
+			<content>Choice 3</content>
+		</elm>
+		<elm proto="Radio Button">
+			<styles>
+				<left>-100px</left>
+				<top>20px</top>
+			</styles>
+		</elm>
+		<elm proto="Radio Button">
+			<styles>
+				<left>0px</left>
+				<top>20px</top>
+			</styles>
+		</elm>
+		<elm proto="Radio Button">
+			<styles>
+				<left>100px</left>
+				<top>20px</top>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="File Upload with Title">
+		<preview>
+			<span style="margin-right:5px;">Upload File:</span><input type="file" style="width:200px; height:23px;" />
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-70px</left>
+				<top>2px</top>
+			</styles>
+			<content>Upload File:</content>
+		</elm>
+		<elm proto="File Upload">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>220px</width>
+			</styles>
+			<attributes>
+				<size>30</size>
+			</attributes>
+		</elm>
+	</preset>
+	<preset name="Text Area with Title">
+		<preview>
+			<table>
+				&lt;tr&gt;
+					&lt;td width="70" align="left" valign="top" style="margin-right:5px;"&gt;Message:&lt;/td&gt;
+					&lt;td&gt;&lt;textarea type="file" style="width:200px; height:50px;"&gt;&lt;/textarea&gt;&lt;/td&gt;
+				&lt;/tr&gt;
+			</table>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-70px</left>
+				<top>0px</top>
+			</styles>
+			<content>Message:</content>
+		</elm>
+		<elm proto="Text Area">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>220px</width>
+				<height>80px</height>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="Select Box with Title">
+		<preview>
+			<span style="margin-right:5px;">Please select:</span><select style="width:200px">&lt;option&gt;-- select value --</select>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-100px</left>
+				<top>2px</top>
+			</styles>
+			<content>Please select:</content>
+		</elm>
+		<elm proto="Select Box">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>220px</width>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="List Box with Title">
+		<preview>
+			<table>
+				&lt;tr&gt;
+					&lt;td width="100" align="left" valign="middle" style="margin-right:5px;"&gt;Please select:&lt;/td&gt;
+					&lt;td&gt;&lt;select size=4 style="width:200px; height:50px;"&gt;&lt;option selected&gt;Option 1&lt;option&gt;Option 2&lt;option&gt;Option 3&lt;/select&gt;&lt;/td&gt;
+				&lt;/tr&gt;
+			</table>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-100px</left>
+				<top>20px</top>
+			</styles>
+			<content>Please select:</content>
+		</elm>
+		<elm proto="List Box">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+			</styles>
+		</elm>
+	</preset>
+	<preset name="Calendar box with Title">
+		<preview>
+			<span style="margin-right:5px;">Date:</span><input type="text" style="width:140px" /><img src="{media_url}sfg/images/icon-date.gif" style="margin-left:5px;" />
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>-50px</left>
+				<top>2px</top>
+			</styles>
+			<content>Date:</content>
+		</elm>
+		<elm proto="Input Box">
+			<attributes>
+				<name>date_field</name>
+			</attributes>
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<width>100px</width>
+			</styles>
+		</elm>
+		<elm proto="Image">
+			<attributes>
+				<src>{media_url}sfg/images/icon-date.png</src>
+				<alt>date selector</alt>
+			</attributes>
+			<styles>
+				<left>110px</left>
+				<top>1px</top>
+				<cursor>pointer</cursor>
+			</styles>
+			<params>
+				<on-click-action>2</on-click-action>
+				<date-input-field>date_field</date-input-field>
+				<date-format>mm/dd/y</date-format>
+			</params>
+		</elm>
+	</preset>
+	<preset name="Captcha with Input Field">
+		<preview>
+			<table>
+				&lt;tr&gt;
+					&lt;td&gt;&lt;/td&gt;
+					&lt;td&gt;&lt;img src="{captcha0}" /&gt;&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;/td&gt;
+					&lt;td style="font-size:9px"&gt;Please, enter the text shown in the image into the field below.&lt;/td&gt;
+				&lt;/tr&gt;
+                &lt;tr&gt;
+					&lt;td width="120" align="left" valign="middle" style="margin-right:5px;"&gt;Protection Code:&lt;span style="margin-right:5px; color:#ff0000;"&gt;*&lt;/span&gt;&lt;/td&gt;
+					&lt;td colspan=2 align="left" valign="middle"&gt;&lt;input type="text" style="width:180px"&gt;&lt;/td&gt;
+				&lt;/tr&gt;
+			</table>
+		</preview>
+		<elm proto="Captcha Image">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+			</styles>
+			<attributes>
+				<name>captcha_image</name>
+			</attributes>
+			<params>
+				<captcha-field>captcha_field</captcha-field>
+			</params>
+		</elm>
+		<elm proto="Image">
+			<styles>
+				<left>155px</left>
+				<top>0px</top>
+				<width>16px</width>
+				<height>16px</height>
+				<cursor>pointer</cursor>
+			</styles>
+			<attributes>
+				<src>{media_url}sfg/images/reload.gif</src>
+				<alt>reload</alt>
+				<title>Reload Captcha</title>
+			</attributes>
+			<params>
+				<on-click-action>4</on-click-action>
+			</params>
+			<events>
+				<onclick>captchaReload(this, 'captcha_image')</onclick>
+			</events>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>0px</left>
+				<top>40px</top>
+				<font-size>9px</font-size>
+			</styles>
+			<content>Please, enter the text shown in the image into the field below.</content>
+		</elm>
+		<elm proto="Static Text">
+			<styles>
+				<left>-120px</left>
+				<top>60px</top>
+			</styles>
+			<content>Protection Code:&lt;span style="color:#ff0000;"&gt;*&lt;/span&gt;</content>
+		</elm>
+		<elm proto="Input Box">
+			<styles>
+				<left>0px</left>
+				<top>60px</top>
+				<width>180px</width>
+			</styles>
+			<attributes>
+				<name>captcha_field</name>
+			</attributes>
+			<params>
+				<required>true</required>
+			</params>
+		</elm>
+	</preset>
+	<preset name="Digital Signature">
+		<preview>
+			<span style="display:inline-block; width:100%">Please sign below using mouse or touchpad</span><button style="padding:0px 15px; font-size:12px; line-height:20px; margin-bottom:3px;">Clear Signature</button><span style="height:70px; width:90%; display:inline-block; background:#FAFFFF; border:3px dotted #ddd; ">Digital Signature Drawing Area</span>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<font-size>14px</font-size>
+			</styles>
+			<content>Please sign below using mouse or touchpad</content>
+		</elm>
+		<elm proto="DIV Element">
+			<styles>
+				<left>0px</left>
+				<top>30px</top>
+			</styles>
+			<content><![CDATA[
+                <input type="button" value="Clear Signature" style="padding:0px 15px; font-size:12px; line-height:20px; margin-bottom:3px;" onclick="jQuery('#digital_signature')[0].clearCanvas(); return false;">
+            ]]></content>
+		</elm>
+		<elm proto="Drawing Canvas">
+            <styles>
+				<left>0px</left>
+				<top>60px</top>
+                <width>350px</width>
+                <height>100px</height>
+                <border>3px dotted #DDDDDD</border>
+                <background-color>#FAFFFF</background-color>
+            </styles>
+            <attributes>
+                <id>digital_signature</id>
+                <name>digital_signature</name>
+            </attributes>
+            <params>
+                <canvas-pen-size>2</canvas-pen-size>
+                <canvas-pen-color>#000000</canvas-pen-color>
+                <canvas-background-color>#FAFFFF</canvas-background-color>
+            </params>
+		</elm>
+	</preset>
+	<preset name="Drawing Area">
+		<preview>
+			<span style="display:inline-block; width:100%">Please draw your requirements sketchily below</span><button style="padding:0px 15px; font-size:12px; line-height:20px; margin-bottom:3px;">Clear Canvas</button><select style="height:22px; margin-left:10px">&lt;option&gt;Pen Size&lt;/option&gt;</select><select style="height:22px; margin-left:10px">&lt;option&gt;Color&lt;/option&gt;</select><span style="height:120px; width:90%; display:inline-block; background:#FAFFFF; border:3px dotted #ddd;">Drawing Area</span>
+		</preview>
+		<elm proto="Static Text">
+			<styles>
+				<left>0px</left>
+				<top>0px</top>
+				<font-size>14px</font-size>
+			</styles>
+			<content>Please draw your requirements sketchily below</content>
+		</elm>
+		<elm proto="DIV Element">
+			<styles>
+				<left>0px</left>
+				<top>25px</top>
+                <white-space>nowrap</white-space>
+			</styles>
+			<content><![CDATA[
+                <input type="button" value="Clear Canvas" style="padding:4px 15px; font-size:12px; line-height:20px; margin-bottom:3px;" onclick="jQuery('#drawing')[0].clearCanvas(); return false;">
+                <select style="width:100px" onchange="if (this.value) jQuery('#drawing')[0].setPenSize(this.value);">
+                    <option value="">Pen Size</option>
+                    <option value="1">1px</option>
+                    <option value="2">2px</option>
+                    <option value="3">3px</option>
+                    <option value="5">5px</option>
+                    <option value="10">10px</option>
+                </select>
+                <select style="width:120px" onchange="if (this.value) jQuery('#drawing')[0].setPenColor(this.value);">
+                    <option value="">Pen Color</option>
+                    <option value="black" style="background:Black; color:white">Black</option>
+                    <option value="maroon" style="background:Maroon; color:white">Maroon</option>
+                    <option value="green" style="background:Green; color:white">Green</option>
+                    <option value="olive" style="background:Olive; color:white">Olive</option>
+                    <option value="navy" style="background:Navy; color:white">Navy</option>
+                    <option value="purple" style="background:Purple; color:white">Purple</option>
+                    <option value="teal" style="background:Teal; color:white">Teal</option>
+                    <option value="silver" style="background:Silver; color:white">Silver</option>
+                    <option value="gray" style="background:Gray; color:white">Gray</option>
+                    <option value="red" style="background:Red; color:white">Red</option>
+                    <option value="lime" style="background:Lime; color:black">Lime</option>
+                    <option value="yellow" style="background:Yellow; color:black">Yellow</option>
+                    <option value="blue" style="background:Blue; color:white">Blue</option>
+                    <option value="fuchsia" style="background:Fuchsia; color:white">Fuchsia</option>
+                    <option value="aqua" style="background:Aqua; color:black">Aqua</option>
+                    <option value="white" style="background:White; color:black">White</option>
+                </select>
+            ]]></content>
+		</elm>
+		<elm proto="Drawing Canvas">
+            <styles>
+				<left>0px</left>
+				<top>65px</top>
+                <width>600px</width>
+                <height>300px</height>
+                <border>3px dotted #DDDDDD</border>
+                <background-color>#FAFFFF</background-color>
+            </styles>
+            <attributes>
+                <id>drawing</id>
+                <name>drawing</name>
+            </attributes>
+            <params>
+                <canvas-pen-size>2</canvas-pen-size>
+                <canvas-pen-color>#000000</canvas-pen-color>
+                <canvas-background-color>#FAFFFF</canvas-background-color>
+            </params>
+		</elm>
+	</preset>
+</prototype>
